@@ -9,9 +9,9 @@ categories: [blogging, hello world]
 
 April 14 seems like a bit late to start work on a new year resolution - "write a tech blog !".
 
-Life for me is all about learning new things. It keeps me ticking all day long. I don't like writing a lot and I plan to put more code and less philosophy here. I would love to share what I know and learn from people.
+I don't like writing a lot and I plan to put more code and less philosophy here. I would love to share what I know and learn from people.
 
-I had a blog at blogspot, which apparently died because of low maintenance. I felt nothing good about wordpress or blogspot which made me sit in front of it and write something up. They might amazing tools for somebody, but they were just not right for me! It was already there and there was nothing I could do. It missed the element of hacking, creativity, exploring and definitely I was not learning anything new from it. All you can do there is to write, write and write. Ah, boring!
+I had a blog at blogspot, which apparently died because of low maintenance. I felt nothing good about wordpress or blogspot which made me sit in front of it and write something up. They might amazing tools for somebody, but they were just not right for me! It was already there and there was nothing I could do. It missed the element of hacking, creativity, exploring and definitely I was not learning anything new from it. All you can do there is to write, write and write. Ah, boring! Life for me is all about learning new things and it keeps me ticking all day long. That part was just not there in blogger.
 
 Then I found [jekyll](https://github.com/mojombo/jekyll/). "Jekyll is a blog-aware, static site generator in Ruby". An a html, css template for the blog needs to be designed first. Write blogs as markdown, track with git, push to github pages and, Aha! the blog published. This felt more like my way of things. I could comfortably write blogs when I wanted in my terminal with vim, track and when I feel like publishing it, its as simple as a git push. Its a lot more interactive. I can decide bits and bytes of my blog and I felt more freedom to do things. This suited me well.
 
