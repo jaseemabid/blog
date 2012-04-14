@@ -3,6 +3,7 @@ layout: post
 title: "A jekyll powered blog for yourself"
 date: 2012-04-15 02:05
 comments: true
+id : f7e0e9c82d8c507b31805f6bfe000e6e
 ---
 
 # A jekyll powered blog for yourself

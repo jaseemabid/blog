@@ -3,6 +3,7 @@ layout: post
 title: "Hello world in blogging"
 date: 2012-04-14 18:00
 comments: true
+id : f7e0e9c82d8c507b31805f6bfe00080a
 ---
 
 # Hello world !
