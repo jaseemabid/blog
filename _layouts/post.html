@@ -13,7 +13,10 @@
 				<div class="span8" id="messageBox">
 					<!--Body content-->
 					{{ content }}
-				{% include disqus.ext %}
+					{% if page.comments %}
+						{% include disqus.ext %}
+					{% endif %}
+
 				</div>
 			</div>
 			{% include footer.ext %}

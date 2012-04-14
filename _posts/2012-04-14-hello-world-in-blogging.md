@@ -2,6 +2,7 @@
 layout: post
 title: "Hello world in blogging"
 date: 2012-04-14 18:00
+comments: true
 ---
 
 # Hello world !
