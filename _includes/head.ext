@@ -1,0 +1,8 @@
+<meta charset="utf-8" />
+<meta name="description" content="Random hacks by Jaseem Abid" />
+<meta name="author" content="Jaseem Abid" />
+<title>{{ page.title }}</title>
+
+<!-- Less styles -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet/less" type="text/css" href="/css/style.less">

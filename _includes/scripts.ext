@@ -1,0 +1,5 @@
+<script src="/js/jquery-1.7.1.min.js"></script>
+<script src="/js/less-1.2.1.min.js"></script>
+<script src="/js/jquery.timeago.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/script.js"></script>
