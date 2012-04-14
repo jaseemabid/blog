@@ -24,6 +24,11 @@ As Tom says,
 
 > I’ve been living with Jekyll for just over a month now. I love it. Driving the development of Jekyll based on the needs of my blog has been very rewarding. I can edit my posts in TextMate, giving me automatic and competent spell checking. I have immediate and first class access to the CSS and page templates. Everything is backed up on GitHub. I feel a lightness now when I’m writing a post. The system is simple enough that I can keep the entire conversion process in my head. The distance from my brain to my blog has shrunk, and, in the end, I think that will make me a better author.
 
+UPDATE : 
+	I just added disqus comments to my blog and this is how I did it.
 
+> * Get your [disqus code](http://disqus.com/) and insert it into something like `_includes/disqus.ext` [commit](https://github.com/jaseemabid/jaseemabid.github.com/commit/169706808efb4431fded505fe0052cd2d61fcb6a)
+> * Conditionally include it to your post layout [commit](https://github.com/jaseemabid/jaseemabid.github.com/commit/8c5c565c27cd6f7b0207600880e6fe80ace397a9)
+> * Make it look good with too less css [comments](https://github.com/jaseemabid/jaseemabid.github.com/commit/48298c4cd9af8390084270b77325f86ffd7984ed)
 
 
