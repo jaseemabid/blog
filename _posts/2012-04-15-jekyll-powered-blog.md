@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A jekyll powered blog for yourself"
-date: 2012-04-14 18:00
+date: 2012-04-15 02:05
 ---
 
 # A jekyll powered blog for yourself
