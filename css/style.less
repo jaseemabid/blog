@@ -1,45 +1,54 @@
-@font-face {
+@font-face{
 	font-family: 'Droid Sans';
 	font-style: normal;
 	font-weight: normal;
 	src: local('Droid Sans'), local('DroidSans'), url('DroidSans.woff') format('woff');
 }
-body {
-
-	font-family: 'Droid Sans', sans-serif;
-
-	div#sideBar {
-
-		section {
-
+body{
+	font-family: 'Droid Sans', sans-serif ! important;
+	p{
+		font-family: 'Droid Sans', sans-serif ! important;
+		font-size: 15px;
+	}
+	div#sideBar{
+		section{
 			margin-top:30px;
-
-			.mainTitle {
-
+			.mainTitle{
 			}
-			
-			img {
+			img{
 				margin: 20px 5px 0;
 				padding-bottom: 7px;
-
-				&:hover {
+				&:hover{
 					border-bottom: 4px solid #444;
 					padding-bottom: 3px;
 				}
+				
 			}
-
+			
 		}
-
-
+		
 	}
-
-	div#messageBox {
-
+	div#messageBox{
 		margin-top:100px;
-
 		ul.blogs li a{
 			border:0;
 		}
-
+		
 	}
+	.footer{
+		@height:50px;
+		position:absolute;
+		bottom:0;
+		height:@height;
+		line-height:20px;
+		width:100%;
+		margin-left: -20px;
+		border-top: 1px solid #e5e5e5;
+		padding-top:20px;
+		p{
+			margin: 0px;
+		}
+		
+	}
+	
 }

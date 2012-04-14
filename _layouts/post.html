@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% include head.ext %}
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="span4" id="sideBar">
+					<!--top content-->
+					{% include about.ext %}
+				</div>
+				<div class="span8" id="messageBox">
+					<!--Body content-->
+					{{ content }}
+				</div>
+			</div>
+		</div>
+		{% include scripts.ext %}
+	</body>
+</html>
