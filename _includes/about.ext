@@ -1,6 +1,8 @@
 <section>
-	<img src="http://www.gravatar.com/avatar/40901f06ff8e7bb58e200630c613d647?s=120" alt="gravatar" width="" height="" />
-	<h1 class="mainTitle">Jaseem Abid</h1>
+	<a href="/">
+		<img src="http://www.gravatar.com/avatar/40901f06ff8e7bb58e200630c613d647?s=120"/>
+		<h1 class="mainTitle">Jaseem Abid</h1>
+	</a>
 	<a href="/about/"><img src="/img/glyphicons_003_user.png" title="about me"/></a>
 	<a href="/"><img src="/img/glyphicons_030_pencil.png" title="blogs"/></a>
 	<a href="http://www.github.com/jaseemabid/"><img src="/img/glyphicons_341_github.png" title="github"/></a>
