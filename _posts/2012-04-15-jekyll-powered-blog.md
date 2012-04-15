@@ -30,6 +30,6 @@ UPDATE :
 
 > * Get your [disqus code](http://disqus.com/) and insert it into something like `_includes/disqus.ext` [commit](https://github.com/jaseemabid/jaseemabid.github.com/commit/169706808efb4431fded505fe0052cd2d61fcb6a)
 > * Conditionally include it to your post layout [commit](https://github.com/jaseemabid/jaseemabid.github.com/commit/8c5c565c27cd6f7b0207600880e6fe80ace397a9)
-> * Make it look good with too less css [comments](https://github.com/jaseemabid/jaseemabid.github.com/commit/48298c4cd9af8390084270b77325f86ffd7984ed)
+> * Make it look good with too less css [commit](https://github.com/jaseemabid/jaseemabid.github.com/commit/48298c4cd9af8390084270b77325f86ffd7984ed)
 
 
