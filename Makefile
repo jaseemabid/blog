@@ -8,7 +8,6 @@ COMPILER = jsmin
 JS_LIBS = ${SRC_DIR}/jquery-1.7.1.min.js \
 	${SRC_DIR}/jquery.timeago.min.js \
 	${SRC_DIR}/raphael.js \
-	${SRC_DIR}/less-1.2.1.min.js \
 	${SRC_DIR}/bootstrap.min.js
 
 BASE_FILES = ${SRC_DIR}/script.js \
@@ -24,7 +23,7 @@ SC_VER = $(shell git log --pretty=format:"%h" -n 1)
 
 DATE = $(shell git log -1 --pretty=format:%ad)
 
-all: script min Jekyll
+all: script min lessc Jekyll
 	@@echo "Jekyll build complete."
 
 script: ${SC}
@@ -45,6 +44,9 @@ ${SC_MIN}: ${SC}
 
 Jekyll :
 	bash -c "jekyll"
+
+lessc :
+	bash -c "lessc -x css/style.less > css/style.min.css"
 
 clean:
 	@@echo "Cleaning up build files"
