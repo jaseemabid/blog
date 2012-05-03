@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "An introduction to JavaScript templating"
-date: Wednesday 02 May 2012 11:12:44 PM IST 
+date: Friday 04 May 2012 02:21:29 AM IST 
 comments: true
 ---
 # An introduction to JavaScript templating. 
