@@ -6,3 +6,4 @@
 <!-- Less styles -->
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+<link href="/css/prettify.css" type="text/css" rel="stylesheet" />

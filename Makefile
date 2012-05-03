@@ -8,7 +8,8 @@ COMPILER = jsmin
 JS_LIBS = ${SRC_DIR}/jquery-1.7.1.min.js \
 	${SRC_DIR}/jquery.timeago.min.js \
 	${SRC_DIR}/raphael.js \
-	${SRC_DIR}/bootstrap.min.js
+	${SRC_DIR}/bootstrap.min.js\
+	${SRC_DIR}/prettify.js
 
 BASE_FILES = ${SRC_DIR}/script.js \
 	${SRC_DIR}/bubbles.js \
@@ -35,12 +36,7 @@ ${SC}: ${MODULES} | ${SRC_DIR}
 min: script ${SC_MIN}
 
 ${SC_MIN}: ${SC}
-	@@if test ! -z ${JS_ENGINE}; then \
-		echo "Minifying script" ${SC_MIN}; \
-		${COMPILER} < ${SC} > ${SC_MIN} Version:${SC_VER} ; \
-	else \
-		echo "You must have NodeJS installed in order to minify jekyll scripts"; \
-	fi
+	${COMPILER} < ${SC} > ${SC_MIN} Version:${SC_VER} ;
 
 Jekyll :
 	bash -c "jekyll"
@@ -50,6 +46,8 @@ lessc :
 
 clean:
 	@@echo "Cleaning up build files"
-	@@rm -f ${SRC_DIR}/foochat.js ${SRC_DIR}/foochat.min.js
+	@@echo "Deleting" ${SC} ${SC_MIN}
+	@@rm -f ${SC} ${SC_MIN}
+
 
 .PHONY: all script jekyll min clean
