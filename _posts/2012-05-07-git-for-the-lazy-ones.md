@@ -40,7 +40,7 @@ Now all this to `~/.bash_aliases`
 	alias get='git '
 	alias gits='git status '
 
-It saves you from typos like 'get' and 'got'. `git status` being the most common command is aliased to `git s` and `gits`
+It saves you from typos like 'get' and 'got'. `git status` being the most common command is aliased to `gs` and `gits`
 
 My favorite is `alias go='git checkout '`. When you want to go to 'master', you say `go master` or `go issue53`. I think it makes a lot more sense than `git checkout master` or `git co master`. 
 
