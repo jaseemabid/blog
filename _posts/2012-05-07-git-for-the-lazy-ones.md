@@ -44,6 +44,16 @@ It saves you from typos like 'get' and 'got'. `git status` being the most common
 
 My favorite is `alias go='git checkout '`. When you want to go to 'master', you say `go master` or `go issue53`. I think it makes a lot more sense than `git checkout master` or `git co master`. 
 
+Often you might prefer git aliases powered by git itself. Add this to your `~/.gitconfig` or set it manually with commands ` git config --global alias.s status`
+
+	[alias]
+		s = status
+		c = commit
+		co = checkout
+		see = log --pretty=format:\"%h %s\" --graph
+
+
+
 Not enough, there is a special one. This one saves a lot of typing for less frequently typed commands or often ones like `g commit`
 
 	alias g='git '
