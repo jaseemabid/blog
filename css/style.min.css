@@ -9,4 +9,5 @@ body div#messageBox{margin-top:100px;}body div#messageBox h1{margin-bottom:20px;
 body div#messageBox h2{margin-bottom:15px;}
 body div#messageBox ul.blogs li a{border:0;font-size:14px;}
 body div#messageBox #disqus_thread{margin-top:80px;}
+body div#messageBox img{margin:20px auto 10px;width:400px;display:block;}
 body .footer{height:50px;line-height:20px;width:100%;margin-left:0px;border-top:1px solid #e5e5e5;padding-top:20px;}body .footer p{margin:0px;font-size:13px;}
