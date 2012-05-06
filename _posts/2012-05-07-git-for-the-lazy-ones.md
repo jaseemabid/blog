@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Git for the very lazy ones like me"
-date: Monday 07 May 2012 01:08:56 AM IST 
-comments: false
+date: Monday 07 May 2012 02:19:41 AM IST
+comments: true
 ---
 
 # Git for the very lazy ones like me.
