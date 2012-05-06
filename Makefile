@@ -36,7 +36,7 @@ ${SC}: ${MODULES} | ${SRC_DIR}
 min: script ${SC_MIN}
 
 ${SC_MIN}: ${SC}
-	${COMPILER} < ${SC} > ${SC_MIN} Version:${SC_VER} ;
+	${COMPILER} < ${SC} > ${SC_MIN} ;
 
 Jekyll :
 	bash -c "jekyll"
