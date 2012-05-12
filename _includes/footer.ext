@@ -1,6 +1,28 @@
-<div class="row footer span12">
+<div class="row footer span12"i>
 	<div class="container-fluid">
-		<p><a href="https://github.com/jaseemabid/jaseemabid.github.com/">Code</a> licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a></p>
-		<p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+		<p>
+			<a href="https://github.com/jaseemabid/jaseemabid.github.com/">
+				Code
+			</a>
+			licensed under the
+			<a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">
+			Apache License v2.0</a>
+		</p>
+		<p>
+			Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, 
+			licensed under <a href="http://creativecommons.org/licenses/by/3.0/">
+			CC BY 3.0</a>.
+		</p>
+		<div class='pull-right'>
+			<a href="/humans.txt">
+				<img src="/img/badges/humanstxt-isolated-blank.gif" alt="humans.txt" title="humans.txt" class="humans"/>
+			</a>
+			<a href="http://www.w3.org/html/logo/">
+				<img src="/img/badges/html5-badge-h-css3-semantics.png" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics" class="html5" >
+			</a>
+			<a href='https://developer.mozilla.org/en/JavaScript' title='Learn JS'>
+				<img src='/img/badges/promotejsh.gif' alt='Learn JS' class='js'/>
+			</a>
+		</div>
 	</div>
 </div>
