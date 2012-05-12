@@ -1,0 +1,36 @@
+
+     __                      _        __   __
+ __ / /__ ____ ___ ___ __ _ ( )___   / /  / /__  ___ _
+/ // / _ `(_-</ -_) -_)  ' \|/(_-<  / _ \/ / _ \/ _ `/
+\___/\_,_/___/\__/\__/_/_/_/ /___/ /_.__/_/\___/\_, /
+                                               /___/
+
+The humans.txt file explains the team, technology, and creative assets behind
+this site.
+
+--------------------------------------------------------------------------------
+
+http://jaseemabid.github.com/ is the personal blog of Jaseem Abid
+<jaseemabid@gmail.com>. I might write about anything under the sun here as I
+wish, but the most common topics would be git, JavaScript, web etc.
+
+Subscribe to my feeds at http://jaseemabid.github.com/feeds
+
+--------------------------------------------------------------------------------
+
+
+{ AUTHOR }
+
+Jaseem Abid
+
+    email   : jaseemabid@gmail.com
+    twitter : @jaseemabid
+    github  : gituhb.com/jaseemabid
+
+
+{ SITE }
+
+Source : https://www.github.com/jaseemabid/jaseemabid.github.com
+Language: English
+Doctype: HTML5
+
