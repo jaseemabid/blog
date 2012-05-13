@@ -1,11 +1,10 @@
-@font-face{font-family:'Droid Sans';font-style:normal;font-weight:normal;src:local('Droid Sans'),local('DroidSans'),url('DroidSans.woff') format('woff');}body{font-family:'Droid Sans',sans-serif ! important;}body div.row:first-child{min-height:500px;}
+@font-face{font-family:'Droid Sans';font-style:normal;font-weight:normal;src:local('Droid Sans'),local('DroidSans'),url('DroidSans.woff') format('woff');}body{font-family:'Droid Sans',sans-serif ! important;margin-top:30px;}body div.row:first-child{min-height:500px;}
 body p{font-family:'Droid Sans',sans-serif ! important;font-size:15px;}
 body pre{background-color:black;padding-left:35px;}
 body svg{z-index:-1;}
-body div#sideBar section{margin-top:30px;}
-body div#sideBar section img{margin:20px 5px 0;padding-bottom:7px;}body div#sideBar section img:hover{border-bottom:4px solid #444;padding-bottom:3px;}
+body div#sideBar section img{margin:20px 1px 0;padding-bottom:7px;}body div#sideBar section img:hover{border-bottom:4px solid #444;padding-bottom:3px;}
 body div#sideBar section a:hover{text-decoration:none;cursor:pointer;}
-body div#messageBox{margin-top:100px;}body div#messageBox h1{margin-bottom:20px;}
+body div#messageBox h1{margin-bottom:20px;}
 body div#messageBox h2{margin-bottom:15px;}
 body div#messageBox ul.blogs li a{border:0;font-size:14px;}
 body div#messageBox #disqus_thread{margin-top:80px;}
