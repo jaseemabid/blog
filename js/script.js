@@ -1,4 +1,25 @@
-$(function(){
-	$('pre').addClass('prettyprint')
+$(function () {
+	"use strict";
+	var twitter = function (elem) {
+			var data = $(elem).html(),
+				reg = /@(\w{1,})/g,
+				res = data.match(reg),
+				len = res.length,
+				i;
+
+			for (i = 0; i < len; i += 1) {
+				data = data.replace(res[i], $("<div>").append(
+					$('<a>').attr({
+						"href": "http://twitter.com/" + res[i].slice(1)
+					}).html(res[i])
+				).html());
+			}
+			$(elem).html(data);
+			return this;
+		};
+
+	$('pre').addClass('prettyprint');
 	prettyPrint();
+	twitter($('body'));
+
 });
