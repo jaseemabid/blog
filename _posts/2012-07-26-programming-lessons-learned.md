@@ -6,6 +6,9 @@ comments: true
 ---
 # Programming lessons I learned
 
+This blog was edited since it was first posted here. Here is the
+[patch](https://github.com/jaseemabid/jaseemabid.github.com/commit/5a04ab501fa1f1ddbb88f63ff737f365c701a940)
+
 Things I learned outside the classroom that might help somebody :)
 
 ### 1. Learn to version control your code.
