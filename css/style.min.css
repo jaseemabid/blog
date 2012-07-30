@@ -2,13 +2,14 @@
 body p{font-family:'Droid Sans',sans-serif ! important;font-size:15px;}
 body pre{background-color:black;padding-left:35px;}
 body svg{z-index:-1;}
-body div#sideBar section img{margin:20px 1px 0;padding-bottom:7px;}body div#sideBar section img:hover{border-bottom:4px solid #444;padding-bottom:3px;}
+body div#sideBar section ul.aboutLinks{list-style-type:none;margin:20px 0 0 10px;}body div#sideBar section ul.aboutLinks li{display:block;}body div#sideBar section ul.aboutLinks li a{color:#2d2d2d;}
 body div#sideBar section a:hover{text-decoration:none;cursor:pointer;}
-body div#messageBox h1{margin-bottom:20px;}
-body div#messageBox h2{margin-bottom:15px;}
-body div#messageBox ul.blogs li a{border:0;font-size:14px;}
-body div#messageBox #disqus_thread{margin-top:80px;}
+body div#messageBox h1{margin-bottom:20px;color:#2d2d2d;}
+body div#messageBox h2,body div#messageBox h3{margin-bottom:15px;color:#2d2d2d;}
+body div#messageBox ul.blogs li a{border:0;font-size:14px;color:#2d2d2d;}
+body div#messageBox #disqus_thread{margin-top:80px;}body div#messageBox #disqus_thread img{height:auto;width:auto;margin:0 auto !important;}
 body div#messageBox img{margin:20px auto 10px;width:400px;display:block;}
+body div#messageBox section.content #badges img{width:auto !important;height:100px;display:inline-block;margin:10px;}
 body .footer{height:50px;line-height:20px;width:100%;margin-left:0px;border-top:1px solid #e5e5e5;padding-top:20px;padding-bottom:35px;}body .footer div.container-fluid{padding-bottom:50px;}
 body .footer p{margin:0px;font-size:13px;}
 body .footer img{margin:0;margin-top:-40px;position:relative;}body .footer img.js{height:100px;width:120px;}
