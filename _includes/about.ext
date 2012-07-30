@@ -1,8 +1,11 @@
 <section>
 	<a href="/"><h2 class="mainTitle">Jaseem Abid</h2></a>
-	<a href="/about/"><img src="/img/glyphicons_003_user.png" title="about me"/></a>
-	<a href="http://www.github.com/jaseemabid/"><img src="/img/glyphicons_341_github.png" title="github"/></a>
-	<a href="http://www.twitter.com/jaseemabid/"><img src="/img/glyphicons_322_twitter.png" title="twitter"/></a>
-	<a href="http://www.facebook.com/jaseemabid/"><img src="/img/glyphicons_320_facebook.png" title="facebook"/></a>
-	<a href="http://feeds.feedburner.com/jaseemabid"><img src="/img/glyphicons_327_rss.png" title="feeds"/></a>
+	<ul class="aboutLinks">
+		<li><a	href="/about/									">About Me		</a></li>
+		<li><a	href="/badges.html								">Badges		</a></li>
+		<li><a	href="http://www.github.com/jaseemabid/			">Github		</a></li>
+		<li><a	href="http://www.twitter.com/jaseemabid/		">Twitter		</a></li>
+		<li><a	href="http://www.facebook.com/jaseemabid/		">Facebook		</a></li>
+		<li><a	href="http://feeds.feedburner.com/jaseemabid	">Feeds			</a></li>
+	</ul>
 </section>
