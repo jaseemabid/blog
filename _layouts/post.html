@@ -15,7 +15,7 @@
 					<!--Body content-->
 					{{ content }}
 					{% if page.comments %}
-						{% include disqus.ext %}
+						<div id="disqus_thread"></div>
 					{% endif %}
 
 				</div>
@@ -23,5 +23,8 @@
 			{% include footer.ext %}
 		</div>
 		{% include scripts.ext %}
+		{% if page.comments %}
+			{% include disqus.ext %}
+		{% endif %}
 	</body>
 </html>
