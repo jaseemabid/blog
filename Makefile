@@ -6,13 +6,10 @@ JS_ENGINE ?= `which node nodejs 2>/dev/null`
 COMPILER = jsmin
 
 JS_LIBS = ${SRC_DIR}/jquery-1.7.1.min.js \
-	${SRC_DIR}/jquery.timeago.min.js \
-	${SRC_DIR}/raphael.js \
 	${SRC_DIR}/bootstrap.min.js\
 	${SRC_DIR}/prettify.js
 
-BASE_FILES = ${SRC_DIR}/script.js \
-	${SRC_DIR}/bubbles.js \
+BASE_FILES = ${SRC_DIR}/script.js
 
 MODULES = ${JS_LIBS}\
 	${BASE_FILES}
@@ -41,7 +38,7 @@ ${SC_MIN}: ${SC}
 Jekyll :
 	bash -c "jekyll"
 
-lessc :
+lessc : css/style.less
 	bash -c "lessc -x css/style.less > css/style.min.css"
 
 clean:
