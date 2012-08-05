@@ -5,7 +5,7 @@ body div.container-fluid{padding:0;margin:0 auto;}
 body div.row:first-child{min-height:700px;}
 body p{font-family:'Droid Sans',sans-serif ! important;font-size:15px;}
 body pre{background-color:black;padding-left:35px;}
-body div#sideBar{position:absolute;z-index:2;min-height:700px;}body div#sideBar h2,body div#sideBar h3,body div#sideBar h4{margin:24px 16px 24px 24px;border-bottom:1px solid #52586b;color:#ebedf0;}
+body div#sideBar{position:fixed;z-index:2;min-height:700px;}body div#sideBar h2,body div#sideBar h3,body div#sideBar h4{margin:24px 16px 24px 24px;border-bottom:1px solid #52586b;color:#ebedf0;}
 body div#sideBar h2{margin-top:50px;}
 body div#sideBar section ul.aboutLinks{list-style-type:none;margin:20px 0 0 10px;}body div#sideBar section ul.aboutLinks li{display:block;margin:0px 16px 5px 24px;color:#F6F9FF;}body div#sideBar section ul.aboutLinks li a{color:#ebedf0;}body div#sideBar section ul.aboutLinks li a:hover{color:#c5cdd7;text-decoration:none;}
 body div#sideBar section a:hover{text-decoration:none;cursor:pointer;}
