@@ -1,12 +1,22 @@
 <section>
 	<a href="/"><h2 class="mainTitle">Jaseem Abid</h2></a>
 	<ul class="aboutLinks">
-		<li><a	href="/about/									">/home/jaseem	</a></li>
-		<li><a	href="/											">/blogs		</a></li>
-		<li><a	href="/badges.html								">/badges		</a></li>
-		<li><a	href="http://www.github.com/jaseemabid/			">/github		</a></li>
-		<li><a	href="http://www.twitter.com/jaseemabid/		">/twitter		</a></li>
-		<li><a	href="http://www.facebook.com/jaseemabid/		">/facebook		</a></li>
-		<li><a	href="http://feeds.feedburner.com/jaseemabid	">/feeds		</a></li>
+		<li><a	href="/about/									">about me	</a></li>
+		<li><a	href="/											">blogs		</a></li>
+		<li><a	href="/badges.html								">badges	</a></li>
+		<li><a	href="http://www.github.com/jaseemabid/			">github	</a></li>
+		<li><a	href="http://www.twitter.com/jaseemabid/		">twitter	</a></li>
+		<li><a	href="http://www.facebook.com/jaseemabid/		">facebook	</a></li>
+		<li><a	href="http://feeds.feedburner.com/jaseemabid	">feeds		</a></li>
+	</ul>
+</section>
+<section>
+	<a href="/"><h3 class="mainTitle">Other Posts</h3></a>
+	<ul class="aboutLinks">
+		{% for post in site.posts %}
+		<li>
+			<a href="{{ post.url }}">  {{ post.title }} </a>
+		</li>
+		{% endfor %}
 	</ul>
 </section>

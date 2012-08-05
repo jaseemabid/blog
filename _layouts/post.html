@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		{% include head.ext %}
-		{% include track.ext %}
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -17,14 +16,15 @@
 					{% if page.comments %}
 						<div id="disqus_thread"></div>
 					{% endif %}
-
+					{% include footer.ext %}
 				</div>
 			</div>
-			{% include footer.ext %}
+
 		</div>
-		{% include scripts.ext %}
 		{% if page.comments %}
 			{% include disqus.ext %}
 		{% endif %}
+		{% include scripts.ext %}
+		{% include track.ext %}
 	</body>
 </html>

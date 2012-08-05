@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		{% include head.ext %}
-		{% include track.ext %}
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -13,12 +12,13 @@
 				</div>
 				<div class="span8" id="messageBox">
 					<!--Body content-->
-					<h2 id="">My blogs</h2>
+					<h1 id="">My blogs</h1>
 					{{ content }}
+					{% include footer.ext %}
 				</div>
 			</div>
-			{% include footer.ext %}
 		</div>
 		{% include scripts.ext %}
+		{% include track.ext %}
 	</body>
 </html>

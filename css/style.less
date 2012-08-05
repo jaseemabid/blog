@@ -7,15 +7,55 @@
 
 body{
 
-	font-family: 'Droid Sans', sans-serif ! important;
-	margin-top: 30px;
+	@sideBar			: #252425;
+	@body				: #F6F9FF;
+	@blue				: #0088CC;
+	@lightText			: #EBEDF0;
+	@lightTextHover		: #C5CDD7;
+	@darkText			: #323746;
+	@darkTextHover		: #52586B;
+	@minHeight			: 700px;
+
+
+	.lighta {
+		a {
+			color : @lightText;
+			&:hover {
+				color:@lightTextHover;
+				text-decoration:none;
+			}
+		}
+	}
+
+	.darka {
+		a {
+			color : @blue;
+			&:hover {
+				color: @darkText;
+				text-decoration:none;
+			}
+		}
+	}
+
+	.customFont {
+		font-family: 'Droid Sans', sans-serif ! important;
+	}
+
+	min-height:@minHeight;
+	background-color: @body;
+	.customFont;
+
+	div.container-fluid {
+		padding:0;
+		margin:0 auto;
+	}
 
 	div.row:first-child{
-		min-height:500px;
+		min-height:700px;
 	}
 
 	p {
-		font-family: 'Droid Sans', sans-serif ! important;
+		.customFont;
 		font-size: 15px;
 	}
 
@@ -24,20 +64,29 @@ body{
 		padding-left: 35px;
 	}
 
-	svg {
-		z-index:-1;
-	}
-
 	div#sideBar{
+		position: absolute;
+		z-index:2;
+		min-height:@minHeight;
+		h2, h3, h4 {
+			margin: 24px 16px 24px 24px;
+			border-bottom: 1px solid @darkTextHover;
+			color: @lightText;
+		}
+
+		h2 {
+			margin-top:50px;
+		}
+
 		section{
 			ul.aboutLinks {
 				list-style-type: none;
 				margin:20px 0 0 10px;
 				li {
 					display:block;
-					a {
-						color : #2d2d2d;
-					}
+					margin: 0px 16px 5px 24px;
+					color: #F6F9FF;
+					.lighta;
 				}
 			}
 			a{
@@ -49,14 +98,23 @@ body{
 		}
 	}
 	div#messageBox{
-		h1 {
-			margin-bottom: 20px;
-			color : #2d2d2d;
+		min-height:@minHeight;
+		border-left: solid 300px @sideBar;
+		padding-left: 40px;
+		position: absolute;
+		left: -20px;
+		z-index: 1;
+		.darka;
+		h1, h2, h3 {
+			margin-bottom: 15px;
+			color : @darkText;
 		}
 
-		h2, h3 {
-			margin-bottom: 15px;
-			color : #2d2d2d;
+		h1 {
+			font-size: 30px;
+			margin: 40px 0 20px 10px;
+			border-bottom: 2px solid @darkText;
+			padding-bottom: 10px;
 		}
 
 		ul.blogs {
@@ -90,12 +148,12 @@ body{
 		}
 	}
 	.footer{
-		@height:50px;
-		height:@height;
+		.darka;
+		height:50px;
 		line-height:20px;
 		width:100%;
 		margin-left:0px;
-		border-top: 1px solid #e5e5e5;
+		border-top: 1px solid @darkTextHover;
 		padding-top:20px;
 		padding-bottom: 35px;
 
@@ -106,24 +164,6 @@ body{
 		p {
 			margin: 0px;
 			font-size: 13px;
-		}
-
-		img {
-			margin:0;
-			margin-top: -40px;
-			position: relative;
-
-			&.js {
-
-				height:100px;
-				width:120px;
-			}
-
-			&.html5 {
-				top: 10px;
-				width :165px;
-				height:64px;
-			}
 		}
 	}
 }
