@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Programming lessons I learned"
-date: Thursday, 26 Jul 26 05:37:41 PM IST
+date: Thursday, 26 Jul 2012 05:37:41 PM IST
 comments: true
 ---
 # Programming lessons I learned
