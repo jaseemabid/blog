@@ -22,10 +22,10 @@
 			</div>
 
 		</div>
+		{% include scripts.ext %}
 		{% if page.comments %}
 			{% include disqus.ext %}
 		{% endif %}
-		{% include scripts.ext %}
 		{% include track.ext %}
 	</body>
 </html>
