@@ -4,8 +4,12 @@ $(function () {
 		var data = $(elem).html(),
 			reg = /@(\w{1,})/g,
 			res = data.match(reg),
-			len = res.length,
+			len = 0,
 			i;
+
+		if (res) {
+			len = res.length;
+		}
 
 		for (i = 0; i < len; i += 1) {
 			data = data.replace(res[i],
@@ -20,6 +24,6 @@ $(function () {
 	$(function(){
 		$('pre').addClass('prettyprint');
 		prettyPrint();
-		twitter($('body'));
+		twitter($('div#messageBox'));
 	});
 });
