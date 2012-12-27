@@ -23,8 +23,8 @@ The basic idea of git is that you can get back to any version of your code at
 any time. It makes collaboration a breeze. It will tell you who added a line of
 code at what point of time. You commit when something works, add a decent commit
 message
-[[[1]]](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-[[[2]]](https://github.com/erlang/otp/wiki/Writing-good-commit-messages) to help
+\[[1](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)\]
+\[[2](https://github.com/erlang/otp/wiki/Writing-good-commit-messages)\] to help
 yourself later, and continue working. Before the next commit, look at the diff
 to see what you are going to commit, think again if that is exactly what you
 want to do and go on. Are you stuck with some nasty bugs? Revert to last known
