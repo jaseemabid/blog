@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Hacker at heart, starting over"
+title: "Hacker At Heart, Starting Over"
 date: 2013-10-05 02:05
 date: Saturday, 5 Oct 2013 02:08:09 AM IST
 comments: true
 id : hacker-at-heart
 ---
 
-# Hacker at heart, starting over
+# Hacker At Heart, Starting Over
 
 [Paathshaala](https://github.com/nitcalicut/Paathshaala) was a humble attempt to
 learn some good programming. Me and [Vipin](https://twitter.com/swvist) would
