@@ -1,3 +1,3 @@
 permalink: /:month-:day-:year/:title.html
-server_port: 4500
+port: 4500
 safe : false
