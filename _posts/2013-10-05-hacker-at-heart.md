@@ -28,6 +28,6 @@ and if both of us fail to do so, we will donate to charity. If we both win, you
 can join us for a dinner at [BBQ nation](http://www.zomato.com/bangalore/barbeque-nation-indiranagar) for free,
 assuming you can prove yourself to be a smarter programmer.
 
-Now read it in [his words]().
+Now read it in [his words](http://swvist.github.io/10-05-2013-hacker_at_heart.html).
 
 Let the hacking begin.
