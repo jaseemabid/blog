@@ -4,8 +4,7 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  <title>Jaseem Abid' Blog</title>
- <link href="http://recursive-design.com/feed/" rel="self"/>
- <link href="http://recursive-design.com/"/>
+ <link href="http://jaseemabid.github.io/" rel="self"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://jaseemabid.github.com/</id>
  <author>
@@ -17,7 +16,7 @@ layout: nil
    <title>{{ post.title }}</title>
    <link href="http://jaseemabid.github.com{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://recursive-design.com{{ post.id }}</id>
+   <id>http://jaseemabid.github.com{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
