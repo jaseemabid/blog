@@ -1,3 +1,0 @@
-permalink: /:month-:day-:year/:title.html
-port: 4500
-safe : false
