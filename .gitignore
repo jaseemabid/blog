@@ -1,5 +1,5 @@
-_site/
-/js/jaseemabid.min.js
-/js/jaseemabid.js
-/.DS_Store
-/img/.DS_Store
+.DS_Store
+.jekyll-metadata
+.sass-cache
+_site
+_drafts

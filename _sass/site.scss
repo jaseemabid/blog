@@ -1,0 +1,37 @@
+header img.me {
+    border-radius: 50%;
+    border: 1px solid #f2f3f3;
+    display: block;
+    margin: 10px auto 30px;
+    max-width: 140px;
+    padding: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+header ul.icons {
+    list-style: none;
+    padding:0;
+
+    li {
+        display: inline-block;
+        margin: 15px;
+
+        a {
+            color: gray;
+            font-size: 20px;
+        }
+    }
+}
+
+table.posts {
+    margin-top: 50px;
+
+    td {
+        border-bottom: 1px solid white;
+
+        a {
+            color: gray;
+        }
+    }
+
+}
