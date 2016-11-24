@@ -14,3 +14,5 @@ sapiosexual interested in a lot of things like religion, politics, economics,
 oncology, history, beer, and philosophy.
 
 [I buy random people coffee and listen to them](http://haveyoumetjaseem.in).
+
+You can reach me over [email](mailto:jaseemabid@gmail.com)
