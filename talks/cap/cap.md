@@ -1,0 +1,354 @@
+class: center, middle
+
+# CAP Theorem
+
+Jaseem Abid
+
+@jaseemabid
+
+Instamojo
+
+---
+class: center, middle
+
+![CAP Diagram](cap.svg)
+
+---
+class: center, middle
+
+![](conjecture.png)
+
+---
+class: center, middle
+
+# Brewer's Conjecture
+
+---
+class: center, middle
+
+![Paper](harvest.png)
+
+---
+class: center, middle
+
+![](proof.png)
+
+---
+class: center, middle
+
+# Consistency
+
+### A consistent view of data on all nodes of the distributed system
+
+---
+class: center, middle
+
+# Availability
+
+### Queries are handled as long as at least one server is available
+
+---
+class: center, middle
+
+# Partition tolerance
+
+### System continues to work even when nodes cannot talk to each other
+
+---
+class: center, middle
+
+![](brewer's cap.png)
+
+---
+class: center, middle
+
+# You can have at most two of these properties for any shared-data system
+
+---
+class: center, middle, inverse
+
+# In a Distributed System, P is not negotiable
+
+---
+class: center, middle, inverse
+
+#  A | B
+
+---
+class: center, middle, inverse
+
+# Examples
+
+---
+layout: false
+
+.left-column[
+  # CP
+]
+.right-column[
+## In the event of a partition, further transactions to an ACID database may be blocked until the partition heals, to avoid the risk of introducing merge conflicts (and thus inconsistency)
+]
+
+---
+layout: false
+
+.left-column[
+  # CP
+]
+.right-column[
+## Distributed databases
+## RAFT, Paxos
+## Retrying communication indefinitely is in essence choosing C over A
+## Majority Protocols
+## Distributed Locking
+]
+
+---
+layout: false
+
+.left-column[
+  # AP
+]
+.right-column[
+## HTTP Web caching provides client-server partition resilience by replicating documents, but a client-server partition prevents verification of the freshness of an expired replica. In general, any distributed database problem can be solved with either expiration based caching to get AP, or replicas and majority voting to get CP (the minority is unavailable). ]
+
+---
+layout: false
+
+.left-column[
+  # AP
+]
+.right-column[
+## Massively scalable by eliminating the need for consensus
+## CDN Caches
+## Browser Caches
+## DNS
+]
+
+---
+layout: false
+
+.left-column[
+  # CA
+]
+.right-column[
+## Databases that provide distributed transactional semantics can only do so in the absence of a network partition separating server peers.
+]
+
+---
+layout: false
+
+.left-column[
+  # CA
+]
+.right-column[
+## Single node PostgreSQL
+## File systems
+]
+
+---
+class: center, middle
+
+# Uptime, Yield & Harvest
+
+---
+class: center, middle, inverse
+
+# Tradeoffs
+
+---
+class: center, middle
+
+![12 years later](12.png)
+
+---
+class: center, middle
+
+![12 explained](12 exp.png)
+
+---
+class: middle
+
+<quote>
+
+In the decade since its introduction, designers and researchers have used (and
+sometimes abused) the CAP theorem as a reason to explore a wide variety of novel
+distributed systems. The NoSQL movement also has applied it as an argument
+against traditional databases.
+
+</quote>
+
+---
+class: middle
+
+<quote>
+
+The “2 of 3” formulation was always misleading because it tended to oversimplify
+the tensions among properties.
+
+</quote>
+
+---
+class: middle
+
+<quote>
+
+CAP prohibits only a tiny part of the design space: perfect availability and consistency in the presence of partitions, which are rare.
+
+</quote>
+
+---
+class: middle
+
+<quote>
+
+Although designers still need to choose between consistency and availability
+when partitions are present, there is an incredible range of flexibility for
+handling partitions and recovering from them.
+
+</quote>
+
+---
+class: middle
+
+<quote>
+
+The modern CAP goal should be to maximize combinations of consistency and
+availability that make sense for the specific application.
+
+</quote>
+
+---
+class: middle
+
+<quote>
+
+Such an approach incorporates plans for operation during a partition and for
+recovery afterward, thus helping designers think about CAP beyond its
+historically perceived limitations.
+
+</quote>
+
+---
+class: center, middle
+
+# Managing Partitions
+
+---
+class: center, middle
+
+# Managing Partitions
+
+---
+class: center, middle, partition
+
+![Paper](part.png)
+
+---
+class: middle
+
+## Detect the start of a partition,
+## Enter an explicit partition mode that may limit some operations
+## Initiate partition recovery when communication is restored
+
+---
+class: middle
+
+# Once the system enters partition mode, two strategies are possible
+
+### Limit some operations, thereby reducing availability
+
+### Record extra information about the operations that will be helpful during partition recovery
+
+---
+class: middle
+
+# Which operations should proceed?
+
+### Given a set of invariants, the designer must decide whether or not to maintain a particular invariant during partition mode or risk violating it with the intent of restoring it during recovery
+
+---
+class: middle
+
+### Unique keys in a database?
+
+--
+
+### Charging a credit card?
+
+--
+
+### Social Calendar
+
+---
+class: middle
+
+# Partition Recovery
+
+--
+
+### The state on both sides must become consistent
+
+--
+
+### Compensation for the mistakes made during partition
+
+--
+### Conflict resolution
+
+--
+### Think Git
+
+--
+### Google docs, hackerrank
+
+---
+class: middle, center
+
+![](crdt.png)
+
+---
+
+class: middle
+
+# Compensating for mistakes
+
+--
+
+### Airline tickets
+
+--
+
+### Withdrawing from an ATM
+
+---
+
+![](klep.png)
+
+---
+
+![](young.png)
+
+---
+
+# References
+
+1. [Brewer's Talk](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)
+
+2. [Harvest, Yield, and Scalable Tolerant Systems](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.24.3690&rep=rep1&type=pdf)
+
+3. [Lessons from Giant-Scale Services](https://people.eecs.berkeley.edu/~brewer/Giant.pdf)
+
+4. [CAP Twelve Years Later: How the "Rules" Have Changed](https://www.researchgate.net/publication/260584236_CAP_Twelve_Years_Later_How_the_Rules_Have_Changed)
+
+5. [Perspectives on the CAP Theorem - Nancy Lynch and Seth Gilbert](https://pdfs.semanticscholar.org/0b0a/af71707a8247b35822f91a95319f1c97476c.pdf)
+
+6. [Brewer's conjecture and the feasibility of Consistent, Available and Partition-Tolerant web services](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
+
+7. https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html
+
+8. https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods
+
+---
+
+background-image: url(end.jpg)
