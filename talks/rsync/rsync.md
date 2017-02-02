@@ -241,7 +241,7 @@ class: middle, center
 
 # Refs
 
-1. http://jaseemabid.github.io/talks/rsync/index.html
+1. http://jaseemabid.github.io/talks/rsync
 1. The rsync algorithm (pdf)
 1. Efficient Algorithms for Sorting and Synchronization (pdf)
 1. http://rsync.samba.org/
