@@ -382,6 +382,6 @@ powerful; like printing to the terminal. Sigh!
 [pp]: https://github.com/llvm-hs/llvm-hs-pretty/issues/12#issuecomment-308326909
 [pure]: https://en.wikipedia.org/wiki/Pure_function
 [sdiehl]: http://www.stephendiehl.com/
-[slides]: http://www.scs.stanford.edu/11au-cs240h/notes/ghc-slides.html][A Haskell compiler
+[slides]: http://www.scs.stanford.edu/11au-cs240h/notes/ghc-slides.html
 [ssa]: https://en.wikipedia.org/wiki/Static_single_assignment_form
 [stlc]: https://en.wikipedia.org/wiki/Simply_typed_lambda_calculus
