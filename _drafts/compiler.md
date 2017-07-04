@@ -5,10 +5,10 @@ title: Lessons learned building a toy compiler
 
 I've been working on [Olifant][olifant]; a compiler
 for [simply typed lambda calculus][stlc] for last few weeks, and this is an
-introduction to things that I learned along the way. Lambda calculus is an
+introduction to things that I learned along the way. Lambda Calculus is an
 extremely minimal formal system to study programming language theory and
 computation in general. Olifant compiles a slightly modified form of lambda
-calculus into [LLVM IR][llvm] and then to machine code which can be run
+Calculus into [LLVM IR][llvm] and then to machine code which can be run
 natively.
 
 We tend to think of compilers as big black boxes which transform some high level
@@ -20,26 +20,28 @@ function.
 
 ## The big picture
 
-The language is called calculus and it looks like this.
+The language is called Calculus and it looks like this.
 
-    let id = λx:i.x; let k = 42; id k
+    let id = λx:i.x
+    let k = 42
+    id k
 
 `λx` is a function that takes one argument `x`. The `:i` indicates that `x` is
 of type integer. Everything after the `.` is the body of the function and here
-it is simply returning the argument. `id k` is a function application with a
-single argument `k`. Calculus is a fairly simple language. A program is a series
-of function or variable declarations (also called let bindings) and one
-expression in the end. The result of the expression is returned from the program
-as the exit code.
+it is simply the variable `x`. The value of body is implicitly . `id k` is a
+function application with a single argument `k`. Calculus is a fairly simple
+language. A program is a series of function or variable declarations (also
+called let bindings) and an expression in the end. The result of the expression
+is returned from the program as the exit code.
 
 The LLVM IR is a language low level enough to be close to metal but still
 expressive enough to describe a lot of high level features without too much
-verbosity. Targeting LLVM IR instead of x86 assembly turned out to be a very
-good idea in retrospect. It is best thought of as a high level machine
-independent portable assembly. It is an excellent tool chain for compiler
-authors with great tooling, descriptive error messages, blazing fast performance
-and sophisticated optimizations built in. See the [language reference][ll-ir]
-for a detailed description or follow along for simple examples.
+verbosity. It is best thought of as a high level machine independent portable
+assembly. It is an excellent tool chain for compiler authors with great tooling,
+descriptive error messages, blazing fast performance and sophisticated
+optimizations built in. Targeting LLVM IR instead of x86 assembly turned out to
+be a very good idea in retrospect. See the [language reference][ll-ir] for a
+detailed description or follow along for simple examples.
 
 Calculus can be compiled into LLVM IR with the olifant compiler
 
@@ -67,7 +69,7 @@ entry:
 
 The llc compiler can compile the IR into an executable binary and optionally
 apply several optimizations with fine grained control and provide the machine
-assembly. Using clang is even simpler
+assembly however using clang is even simpler
 
     $ clang sample.ll -o sample
     $ file sample
@@ -75,7 +77,7 @@ assembly. Using clang is even simpler
     dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,
     for GNU/Linux 2.6.32, not stripped
 
-The language is so small; it can't even print the result to the terminal yet :)
+The Calculus is so small; it can't even print the result to the terminal yet :)
 The return value of a program can be fetched using bash special variables.
 
     $ ./sample
@@ -92,7 +94,7 @@ paper [Monadic Parsing in Haskell][paper] is a beautiful and simple introduction
 to the subject.
 
 Consider a very simple language with just numbers and addition. AST for such a
-language can be described very elegantly with the following Haskell type.
+language can be described very elegantly with the following Haskell type:
 
 ```haskell
 data Expr = Number Int | Plus Expr Expr
@@ -105,8 +107,8 @@ Plus (Number 6) (Number 4)
 ```
 
 The Calculus is so small, it's type can be represented in just a few lines of
-Haskell. All Haskell code examples are for illustration purposes and it is not
-strictly necessary to understand it to read further.
+Haskell. All Haskell code examples are for illustration purposes only and it is
+not strictly necessary to understand it to read further.
 
 ```haskell
 data Calculus =
@@ -133,7 +135,7 @@ Parser parses the input expression `let id = λx:id.x; id 42` into
 ]
 ```
 
-The 1-1 correspondence between the source language and the Calculus type is
+The 1 to 1 correspondence between the source language and the Calculus type is
 intentional.
 
 ## Core
@@ -147,13 +149,13 @@ and unnecessarily crippling, but it makes subsequent analysis and code
 generation much simpler*.
 
 The Core is statically typed with the type of every expression known at compile
-time.
+time. TArrow is a function type.
 
 ```haskell
 data Tipe = TUnit | TInt | TBool | TArrow Tipe Tipe
 ```
 
-An `Expr` is a nested core expression.
+An `Expr` is a nested Core expression.
 
 ```haskell
 data Expr
@@ -189,7 +191,7 @@ data Ref = Ref { name :: Text
 
 One of the interesting things I learned about compilers is that a symbol table
 is often unnecessary. Typically a symbol table is a mapping from a variable name
-to the properties of it like the value, type and the line number it was defined.
+to it's properties like the value, type and the line number at it was defined.
 
 Quoting [AOSA § No Symbol Table][aosa],
 
@@ -203,15 +205,14 @@ Quoting [AOSA § No Symbol Table][aosa],
 
 I find this approach fundamentally simpler and a natural way to think in a
 purely functional programming language. Rather than represent a variable with
-just a string and maintain a shared mapping from the name to all important
-attributes, we use a rich type called `Ref` to embed all the attributes in
-itself. Each pass of the compiler can augment and annotate more information into
-the reference accordingly. Large parts of the program become inherently
-stateless and simpler.
+just a string and maintain a shared mapping from the name to all its attributes,
+we use a rich type (`Ref`) to embed all the attributes in itself. Each pass of
+the compiler can augment and annotate more information into the reference
+accordingly. Large parts of the program become inherently stateless and simpler.
 
 ## Cast
 
-Casting is applying the minimum transformations on calculus to get core and is
+Casting is applying the minimum transformations on Calculus to get Core and is
 the immediate step after parsing. Cast does basic structural validations and
 ensures that the program is a series of declarations and an expression in the
 end. All known types (only function arguments for now) are retained and the rest
@@ -226,9 +227,9 @@ further transformations and code generation. The rename phase rewrites variable
 names to avoid runtime ambiguity and shadowing and eliminates the need for
 complex symbol tables. The program `let x = 1; let id = λx.x` uses the variable
 `x` twice, but they are in no ways related. It is equivalent to `let x = 1; let
-id = λy.y` but is simpler in a way that transformations after renamer can be
-sure that variable references are globally unique and there is no need to deal
-with name collisions.
+id = λy.y` but latter is simpler in a way that transformations after renamer can
+be sure that variable references are globally unique and there is no need to
+deal with name collisions.
 
 The user defined name of the reference is preserved in a `Ref` as `raw` and a
 new globally unique name is chosen (called name) is used from then onward.
@@ -240,32 +241,34 @@ out the answer yet.
 
 Type inference for a language with some type annotations and
 no [polymorphic types][poly] is reasonably straightforward and easy, and I
-decided to let go some expressive power (read generics) to keep things simple.
+decided to let go of some expressive power (read generics) to keep things
+simple.
 
 A polymorphic type or a type variable is to a type what a variable is to a
 value. You describe the properties of an item from a set and it takes a concrete
 value at runtime. For example, the identity function in Haskell has the type
 signature `id :: a -> a`, which can be read as a function that takes a value of
-polymorphic/generic type a and returns another value of type a. At runtime `a`
-gets a concrete value like Int or String, and polymorphic types let us work with
-a set of types in a generic way. tldr; I don't have polymorphic types yet.
+polymorphic/generic `type a` and returns another value of `type a`. At runtime,
+`a` gets a concrete value like `Int` or `String`, and polymorphic types let us
+work with a set of types in a generic way. tldr; I don't have polymorphic types
+yet.
 
 Complete type inference is possible for a language with polymorphic types even
 without any user annotations with a very well known algorithm
-called [Hindley-Milner][hm] and its a bit tricky to get right. In the meanwhile,
-we can use a much simpler algorithm.
+called [Hindley-Milner][hm] but it is a bit tricky to get right. In the
+meanwhile, we can use a much simpler algorithm.
 
 Instead of getting into the formal model, the algorithm can be explained using a
 simple heuristic. The problem is to find the type of each expression in the
 program without the user explicitly annotating everything. Think of the `auto`
 keyword in C++. The idea is to discover that the language can introduce a new
-variable in only 2 ways, function arguments and let bindings. As long as all the
-parameters of the function are annotated, the information can be used in the
-body of the function and need not be repeated. The type of a variable introduced
-by let binding can be inferred from the right hand side of the equation, which
-is either a term constructed with known types or a type error. Types of literals
-line numbers, booleans and strings are obvious after parsing. In practice this
-approach worked really well for Olifant.
+variable in only 2 ways, `function arguments` and `let bindings`. As long as all
+the parameters of the function are annotated, this information can be used in
+the body of the function and need not be repeated. The type of a variable
+introduced by let binding can be inferred from the right hand side of the
+equation recursively, which is either a term constructed with known types or a
+type error. Types of literals like numbers, booleans and strings are obvious
+after parsing. In practice this approach worked really well for Olifant.
 
 ## Code generation
 
@@ -274,10 +277,10 @@ This module took me the longest to write, test and then rewrite several times.
 
 I had to spend a lot of time learning the LLVM nuances and fight with the
 Haskell API before things started working.
-The [Haskell bindings for LLVM][llvm-hs] provides a thin API around the C++ API
-and it is nowhere close to typesafe, so the usual Haskell magic of 'if it
-compiles, it works' wasn't applicable at all. I took so many failed approaches
-before I settled down with what I have right now.
+The [Haskell bindings for LLVM][llvm-hs] provides a thin wrapper around the C++
+API and it is nowhere close to being typesafe, so the usual Haskell magic of
+_"if it compiles, it works"_ wasn't applicable at all. I took so many failed
+approaches before I settled down with what I have right now.
 
 The basic idea is to initialize a [module][module], and to populate it with
 definitions as you traverse the AST. A module contains a list of global
@@ -294,7 +297,7 @@ explained in the beginning of the post.
 
 There are a whole lot of things I had to omit from this post to save it from
 growing into a 200 page text book, but a few important ones need to be
-mentioned.
+mentioned:
 
 ### 1. Lambda lifting
 
@@ -360,7 +363,13 @@ powerful; like printing to the terminal. Sigh!
 1. David Terei's [slides][slides] on the GHC compiler internals. Most of my
    ideas about tiny passes where shaped by Haskell.
 
+2. The [GHC user's guide][ghc-guide] is one of the best places to learn Haskell
 
+3. LLVM types can be very intimidating. I wrote
+   a [simple small list of types][ll-types] you might need.
+
+[ll-types]: https://github.com/jaseemabid/Olifant/blob/master/docs/Types.org
+[ghc-guide]: https://downloads.haskell.org/~ghc/8.0.2/docs/html/users_guide/index.html
 [aosa]: http://www.aosabook.org/en/ghc.html
 [ast-typing]: http://blog.ezyang.com/2013/05/the-ast-typing-problem
 [ast]: https://en.wikipedia.org/wiki/Abstract_syntax_tree
