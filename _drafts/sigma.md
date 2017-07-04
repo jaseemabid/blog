@@ -3,22 +3,27 @@ layout: post
 title: The Σ problem
 ---
 
-It's been 6 weeks at [RC][1]. Half of my program is over and it's time for some
-reflection and introspection.
 
-Most days I'm happy with the progress I make, but somehow the 6 weeks doesn't
-add up. I learned a lot out of [Olifant][2] and I probably won't be able to fit
-all of it into 20000 words. I must have rewritten some parts of it over half a
-dozen times. Each rewrite is a proof that I learned something new which I didn't
-know maybe 48hrs ago.
 
-But somehow things doesn't add up. I often wonder if it really should have taken 6 weeks.
+It's been 6 weeks at [RC][1]. First half of the 12 week program is over and it's
+time for some reflection and introspection.
 
-Something feels wrong about
+Most of the days I'm happy with the progress I make, but somehow the six weeks
+don't add up. I learned a lot out of [Olifant][2] and I just summarized a lot of
+that in a long [blog][3] post. I must have rewritten some parts of it over half
+a dozen times. Each rewrite is a proof that I learned something new which I
+didn't know maybe 48 hours ago.
 
-    30/06/'17
-    Σ
-    22/05/'17
+I often wonder if it really should have taken 6 weeks. Something feels wrong about
+
+<p></p>
+
+$$\sum_{day=22/05/2017}^{30/06/17} {work($day)}  $$
 
 [1]: https://recurse.com
 [2]: https://github.com/jaseemabid/Olifant
+[3]: https://jaseemabid.github.io/2017/07/04/compiler.html
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
