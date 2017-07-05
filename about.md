@@ -6,14 +6,15 @@ permalink: /about
 
 # Hi! I'm Jaseem Abid
 
-I'm a computer programmer at Bangalore, India interested in distributed systems,
-programming languages and Haskell.
+I'm a computer programmer at interested in distributed systems, programming
+languages and Haskell.
 
 I'm an extrovert who loves great conversations. An atheist, pluviophile and
-sapiosexual interested in a lot of things like religion, politics, economics,
-oncology, history, beer, and philosophy.
+interested in a lot of things like religion, politics, economics, oncology,
+history, beer, and philosophy.
 
-Sometimes [I buy random people coffee and listen to them](http://haveyoumetjaseem.in).
+I'm spending 12 weeks at [Recurse Center](https://recurse.com) right now trying
+to be a better programmer.
 
 You can reach me over [email](mailto:jaseemabid@gmail.com).
 
