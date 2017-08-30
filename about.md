@@ -19,3 +19,5 @@ I spend 12 weeks at [Recurse Center](https://recurse.com) from May 22 to Aug 10
 You can reach me over [email](mailto:jaseemabid@gmail.com).
 
 Find my [resume](/Jaseem Abid.pdf) here.
+
+<script async defer src="https://www.recurse-scout.com/loader.js?t=298747a8a50ca362138e799f749fcf3f"></script>
