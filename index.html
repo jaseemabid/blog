@@ -9,6 +9,7 @@ layout: default
   <table class="posts">
     <tbody>
       {% for post in site.posts %}
+      {% unless post.hidden %}
       <tr>
         <td>
           <a href="{{ post.url | prepend: site.baseurl }}">
@@ -19,6 +20,7 @@ layout: default
           {{ post.date | date: "%b %-d, %Y" }}
         </td>
       </tr>
+      {% endunless %}
       {% endfor %}
     </tbody>
   </table>
