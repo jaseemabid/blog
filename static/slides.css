@@ -1,0 +1,60 @@
+body {
+    font-family: 'Droid Serif';
+}
+
+h1, h2, h3 {
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: normal;
+}
+
+h1 {font-size: 160px !important;}
+h2 {font-size: 100px !important;}
+
+ol, ul {
+    position: relative;
+    top: -80px;
+}
+
+li {font-size: 35px !important;}
+
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+.solarized {
+    background: #002b36;
+    color: #b58900;
+}
+
+quote {
+    border-left: 10px solid #777872;
+    padding-left: 20px;
+    display: inline-block;
+    font-size: 30px;
+}
+
+.huge h1 {font-size: 300px}
+
+.padded {padding: 3em;}
+
+.not-padded {padding-left: 1em;}
+
+.remark-code {
+    font-size: 25px
+}
+
+.hljs-solarized-dark .hljs {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+}
+
+/* Two-column layout */
+.left-column {
+    width: 20%;
+    float: left;
+}
+
+.right-column {
+    width: 75%;
+    float: right;
+    position: relative;
+    top: -170px;
+}
