@@ -7,17 +7,14 @@ h1, h2, h3 {
     font-weight: normal;
 }
 
-h1 {font-size: 160px !important;}
-h2 {font-size: 100px !important;}
-
-ol, ul {
-    position: relative;
-    top: -80px;
+.remark-code, .remark-inline-code {
+    font-family: 'Ubuntu Mono';
+    font-size: 25px
 }
 
-li {font-size: 35px !important;}
-
-.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+.remark-slide-content h1 {
+    font-size: 75px !important;
+}
 
 .solarized {
     background: #002b36;
@@ -31,14 +28,11 @@ quote {
     font-size: 30px;
 }
 
+img { width: 100%; }
+
 .huge h1 {font-size: 300px}
 
-.padded {padding: 3em;}
-
-.not-padded {padding-left: 1em;}
-
 .remark-code {
-    font-size: 25px
 }
 
 .hljs-solarized-dark .hljs {
@@ -52,9 +46,15 @@ quote {
     float: left;
 }
 
+.left-column h1 {
+    display: inline-block;
+}
+
 .right-column {
     width: 75%;
     float: right;
-    position: relative;
-    top: -170px;
+}
+
+.right-column h2 {
+    margin: 20px auto;
 }

@@ -27,27 +27,29 @@ class: center, middle, solarized
 # Olifant
 
 ---
-class: padded, solarized
+class: solarized
 
-.left-column[## LLVM]
-
---
-.right-column[- Modular and reusable compiler and toolchain technologies]
-
---
-.right-column[- The name is not an acronym]
+.left-column[
+# LLVM
+]
 
 --
-.right-column[- A reasonably low level IR]
+.right-column[## Modular and reusable compiler and toolchain technologies]
 
 --
-.right-column[- Low level enough to express concepts]
+.right-column[## The name is not an acronym]
 
 --
-.right-column[- High level enough to be not asm]
+.right-column[## A reasonably low level IR]
 
 --
-.right-column[- The API is *HUGE*]
+.right-column[## Low level enough to express concepts]
+
+--
+.right-column[## High level enough to be not asm]
+
+--
+.right-column[## The API is *HUGE*]
 
 ---
 class: center, middle, solarized
@@ -192,59 +194,65 @@ simple = T.putStrLn $ ppllvm $ buildModule "exampleModule" $ mdo
 ```
 
 ---
-class: padded, solarized
+class: solarized
 
-.left-column[## Good]
-
---
-.right-column[- Using strings everywhere to generate IR is ugly]
-
---
-.right-column[- And unsafe; you could get some safety with a good lib]
+.left-column[
+    # Good
+]
 
 --
-.right-column[- Things like GEP gets ugly real quick]
+.right-column[## Using strings everywhere to generate IR is ugly]
 
 --
-.right-column[- LLVM IR syntax changes often]
+.right-column[## And unsafe; you could get some safety with a good lib]
+
+--
+.right-column[## Things like GEP gets ugly real quick]
+
+--
+.right-column[## LLVM IR syntax changes often]
 
 ---
-class: padded, solarized
-.left-column[## Bad]
+class: solarized
+.left-column[
+# Bad
+]
 
 --
-.right-column[- Might be too complicated for small projects]
+.right-column[## Might be too complicated for small projects]
 
 --
-.right-column[- Just llvm-hs-pure might do]
+.right-column[## Just llvm-hs-pure might do]
 
 --
-.right-column[- Pretty much all functions are partial]
+.right-column[## Pretty much all functions are partial]
 
 --
-.right-column[- Code is fairly complicated]
+.right-column[## Code is fairly complicated]
 
 ---
-class: padded, solarized
+class: solarized
 
-.left-column[## Ugly]
-
---
-.right-column[- API is C++ compatible, not functional]
-
---
-.right-column[- :(]
+.left-column[
+# Ugly
+]
 
 --
-.right-column[- FFI everywhere]
+.right-column[## API is C++ compatible, not functional]
 
 --
-.right-column[- FFI might be efficient, but pain to debug]
+.right-column[## :(]
 
 --
-.right-column[- And that's how you segfault GHC]
+.right-column[## FFI everywhere]
+
+--
+.right-column[## FFI might be efficient, but pain to debug]
+
+--
+.right-column[## And that's how you segfault GHC]
 
 ---
-class: huge, padded, center, middle, solarized
+class: huge, center, middle, solarized
 
 # Thanks
