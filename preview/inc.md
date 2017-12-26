@@ -28,19 +28,26 @@ To summarize, the goals are
    is very much necessary for sections like functions, closures and dynamic
    allocation.
 
-2. A short and quick introduction to x86_64 assembly covering only the subset
+1. Provide completely functional code and a cleaner and leaner test suite.
+
+1. Stick with [R5RS][r5rs] - a very simple and minimal scheme standard. The
+   paper uses a lot of [Chez Scheme][chez] specific extensions, which is sub
+   optimal. Removing some of the extensions like property lists on symbols make
+   code easier to understand and using regular math symbols like `+` and `-`
+   instead of `fx*` makes the code a lot more elegant.
+
+1. Present the pearls in a better light. The runtime representation of data
+   described in the paper for example is a clever hack but it is described in a
+   way much more complicated than it should be. I will stick with a simpler
+   constant 3 bit tagging scheme rather than the variable encoding used in the
+   paper. Tagged pointers and heap allocation can be explained a lot easier with
+   some diagrams.
+
+1. A short and quick introduction to x86_64 assembly covering only the subset
    necessary to get started. Most of the resources online to learn assembly tend
    to be outdated and too much information to just get started quickly. We will
    use the relatively easier to read Intel syntax unlike AT&T notation used by
    the paper and focus exclusively on modern 64 bit architecture.
-
-3. The runtime representation of data in the paper is a clever hack but its much
-   more complicated than it should be. I will stick with a simpler constant 3
-   bit tagging scheme rather than the variable encoding used in the paper.
-   Tagged pointers and heap allocation can be explained a lot easier with some
-   diagrams.
-
-4. A much cleaner and leaner test suite.
 
 It might be a good idea to read the paper abstract now before proceeding ahead.
 
@@ -88,4 +95,6 @@ right approach.
 
 ---
 
+[chez]: https://cisco.github.io/ChezScheme
 [paper]: http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf
+[r5rs]: http://schemers.org/Documents/Standards/R5RS
