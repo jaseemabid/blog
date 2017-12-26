@@ -46,7 +46,48 @@ To summarize, the goals are
 
 It might be a good idea to read the paper abstract now before proceeding ahead.
 
+# 1. Constant factors
+
+Think of writing a compiler for a language that accepts the number `n` as input
+and generates a binary that exits with exit code n. That should be simple and
+straightforward, right?
+
+1. What is the format for executable binaries in Linux? Is that an ELF or a.out?
+   How do you actually write that binary? Do you need a library or a hex editor?
+1. If I copy over that binary to a Mac or BSD, will it work the same?
+1. Is it statically linked or dynamic? Do we need glibc? What else do we need on
+   the machine?
+1. Do we directly generate the binary or generate assembly and convert that into
+   an executable with something else?
+1. Are there debuggers for assembly? How much assembly knowledge is required for
+   this task?
+
+Unless you do a lot of systems programming, I'm sure most of us wont know the
+answers to all of these questions. But we haven't even started writing the
+compiler yet! We start with a mix of C and asm to tackle some of these problems
+to get the foundation right. Writing compilers need not be hard if we take the
+right approach.
+
+![Figure 1; XKCD style graph of y = mx + c](./y=mx+c.svg)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 [paper]: http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf
