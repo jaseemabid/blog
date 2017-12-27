@@ -79,15 +79,16 @@ right approach.
 # 2. A quick and dirty introduction to x86 assembly
 
 Why would you bother learning assembly anymore? There are so many abstractions
-b/w the user and the machine for a typical consumer app on the cloud that its
-often impossible to trace your code all the way down to the hardware and really
-understand what's going on. I find it fascinating to dive deep and understand
-the true cost of high level programming language features. For example, there is
-no function call involved in a code like `(null? x)`. It requires just one x86
-instruction (light travels about 30cm in the time taken to figure that out on my
-laptop) to compute the result and a few more to make a Scheme Boolean result.
-You will be able to say precisely how much memory a vector takes in memory or
-the overhead caused by the garbage collector or function calls.
+between the user and the machine for a typical consumer app on the cloud that
+it's often impossible to trace your code all the way down to the hardware and
+really understand what's going on. I find it fascinating to dive deep and
+understand the true cost of high level programming language features. For
+example, there is no function call involved in a code like `(null? x)`. It
+requires just one x86 instruction (light travels about 30cm in the time taken to
+figure that out on my laptop) to compute the result and a few more to make a
+Scheme Boolean result. You will be able to say precisely how much memory a
+vector takes in memory or the overhead caused by the garbage collector or
+function calls.
 
 The easiest way to get started is to write some very simple C programs and see
 the generated assembly.
@@ -153,9 +154,58 @@ The generated assembly looks somewhat like this
     33		.section	".note.GNU-stack","",@progbits
 ```
 
-_Note:_ The generated assembly is slightly edited for clarity. Use the flags
-`-fno-asynchronous-unwind-tables -fomit-frame-pointer` to generate code that is
-easier to read.
+Now this code sample contains more information than I should have put into
+probably the first assembly code you are reading, but the good part is that it
+covers most of what we need in just one example.
+
+There are 16 general purpose registers on a modern Intel x86_64 CPU and they are
+named RAX, RBX, RCX, RDX, RDI, RSI, RBP, RSP and R8-R15. These processors are
+backward compatible to versions way before I was born. The 32 bit versions of
+the same registers are named EAX, EBX etc and they occupy the lower half of the
+64 bit register. E here stands for Extended because it extended the 16 bit
+registers that predated them. The 16 bit registers can be accessed as AX, BX etc
+and the lower and upper 8 bits of a 16 bit register like AX can be accessed as
+AH and AL. Your shiny new machine can run 35year old 8 bit assembly just fine.
+
+Some registers are reserved for specific purposes and we use 2 of them. `RSP` is
+the stack pointer. `RBP` points to the base of the current stack frame. It took
+me a long time to really understand x86 stacks. This ride is going to be a bit
+bumpy but rewarding. The stack grows _down_ from a high address to a lower
+address. An inverted gravity defying stack indeed! Since we have only a fixed
+number of registers, we need the stack to store local variables and your
+precious cat pictures. `RSP` points to the top of the stack or the lower most
+address. You can allocate space on the stack by decrementing the stack pointer
+like `RSP = RSP - 16`. Stack allocation and deallocation is a single numeric
+operation and super fast. Local variables slowly grow the stack downwards and
+when the function returns, we can quickly set RSP back to its initial value to
+reclaim all the space in one go! There is no need for a garbage collector to
+reclaim the space used by local variables after the function returns. C calls
+them automatic variables.
+
+**TODO:** Use the real line numbers than the sequence markdown generates. Be
+explicit about the links.
+
+1. The lines that start with a dot is a directive to the assembler. `.text`
+marks the starting of the code section.
+
+2. `.intel_syntax noprefix` denotes that we are going to use the Intel syntax.
+   The other option is AT&T which I find ugly and counter intuitive.
+
+8. Assembly code is a list of instructions and most of the mnemonics like ADD,
+   RET, CALL etc are obvious. MOV instruction is used for moving memory. Fun
+   fact: the instruction has so many variations that this single instruction is
+   [turning compete][turing complete]. `mov dword ptr [rsp - 4], edi` moves the
+   contents of the 32 bit register `EDI` into the memory location with address
+   `RSP - 4`. The `[]` is an address dereferencing operator. Now you know where
+   the pointer arithmetic in C comes from - there is hardware support to do it
+   very efficiently. And now you know why you should avoid such low level memory
+   unsafe languages - it's very easy to get this wrong unless you are really
+   careful. This instruction roughly transalates to the C snippet `*(RSP - 4) =
+   EDI`.
+
+  > The generated assembly is slightly edited for clarity. Use the flags
+  > `-fno-asynchronous-unwind-tables -fomit-frame-pointer` to generate code that
+  > is easier to read.
 
 _Exercises:_
 
