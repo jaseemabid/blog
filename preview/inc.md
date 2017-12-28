@@ -83,75 +83,69 @@ between the user and the machine for a typical consumer app on the cloud that
 it's often impossible to trace your code all the way down to the hardware and
 really understand what's going on. I find it fascinating to dive deep and
 understand the true cost of high level programming language features. For
-example, there is no function call involved in a code like `(null? x)`. It
-requires just one x86 instruction (light travels about 30cm in the time taken to
-figure that out on my laptop) to compute the result and a few more to make a
-Scheme Boolean result. You will be able to say precisely how much memory a
-vector takes in memory or the overhead caused by the garbage collector or
-function calls.
+example, there is no function call involved in `(null? x)` and it takes just one
+x86 instruction to compute the result (light travels about 30cm in the
+meanwhile) and a few more to make a scheme boolean result. You will be able to
+say precisely how much memory a vector takes or the overhead caused by the
+garbage collector or function calls.
 
 The easiest way to get started is to write some very simple C programs and see
-the generated assembly.
-
-Consider this C code.
+the generated code. Consider this example:
 
 ```c
-     1	#include <stdio.h>
-     2
-     3	int add(int a, int b) {
-     4	    return a + b;
-     5	}
-     6
-     7	int main(int argc, char** argv) {
-     8	    int a = 10;
-     9	    int b = 20;
-    10	    return add(a, b);
-    11	}
+#include <stdio.h>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main(int argc, char** argv) {
+    int a = 10;
+    int b = 20;
+    return add(a, b);
+}
 ```
 
 You can ask clang (or GCC, it accepts the same flags) to dump the assembly
 generated.
 
 ```shell
-$ clang  -S -masm=intel -o - foo.c
+$ clang -S -masm=intel -o - sample.c
 ```
 
 The generated assembly looks somewhat like this
 
 ```nasm
-     1		.text
-     2		.intel_syntax noprefix
-     3		.file	"foo.c"
-     4		.globl	add
-     5		.p2align	4, 0x90
-     6		.type	add,@function
-     7	add:
-     8		mov	dword ptr [rsp - 4], edi
-     9		mov	dword ptr [rsp - 8], esi
-    10		mov	esi, dword ptr [rsp - 4]
-    11		add	esi, dword ptr [rsp - 8]
-    12		mov	eax, esi
-    13		ret
-    14
-    15		.globl	main
-    16		.p2align	4, 0x90
-    17		.type	main,@function
-    18	main:
-    19		sub	rsp, 24
-    20		mov	dword ptr [rsp + 20], 0
-    21		mov	dword ptr [rsp + 16], edi
-    22		mov	qword ptr [rsp + 8], rsi
-    23		mov	dword ptr [rsp + 4], 10
-    24		mov	dword ptr [rsp], 20
-    25		mov	edi, dword ptr [rsp + 4]
-    26		mov	esi, dword ptr [rsp]
-    27		call	add
-    28		add	rsp, 24
-    29		ret
-    30
-    31
-    32		.ident	"clang version 5.0.0 (tags/RELEASE_500/final)"
-    33		.section	".note.GNU-stack","",@progbits
+
+    .text                              ❶
+    .intel_syntax noprefix             ❷
+    .file   "sample.c"
+    .globl  add
+    .p2align    4, 0x90
+    .type   add,@function
+add:                                   ❸
+    mov     dword ptr [rsp - 4], edi   ❹
+    mov     dword ptr [rsp - 8], esi   ❺
+    mov     esi, dword ptr [rsp - 4]   ❻
+    add     esi, dword ptr [rsp - 8]   ❼
+    mov     eax, esi                   ❽
+    ret                                ❾
+
+    .globl  main
+    .p2align    4, 0x90
+    .type   main,@function
+main:
+    sub     rsp, 24                    ❿
+    mov     dword ptr [rsp + 20], 0
+    mov     dword ptr [rsp + 16], edi
+    mov     qword ptr [rsp + 8], rsi
+    mov     dword ptr [rsp + 4], 10    ⓫
+    mov     dword ptr [rsp], 20        ⓬
+    mov     edi, dword ptr [rsp + 4]   ⓭
+    mov     esi, dword ptr [rsp]       ⓮
+    call    add                        ⓯
+    add     rsp, 24                    ⓰
+    ret                                ⓱
 ```
 
 Now this code sample contains more information than I should have put into
@@ -163,9 +157,9 @@ named RAX, RBX, RCX, RDX, RDI, RSI, RBP, RSP and R8-R15. These processors are
 backward compatible to versions way before I was born. The 32 bit versions of
 the same registers are named EAX, EBX etc and they occupy the lower half of the
 64 bit register. E here stands for Extended because it extended the 16 bit
-registers that predated them. The 16 bit registers can be accessed as AX, BX etc
-and the lower and upper 8 bits of a 16 bit register like AX can be accessed as
-AH and AL. Your shiny new machine can run 35year old 8 bit assembly just fine.
+registers that predated them namely AX, BX etc. The lower and upper 8 bits of a
+16 bit register like AX can be accessed as AH and AL. Your shiny new machine can
+run 35year old 8 bit assembly just fine.
 
 Some registers are reserved for specific purposes and we use 2 of them. `RSP` is
 the stack pointer. `RBP` points to the base of the current stack frame. It took
@@ -176,32 +170,77 @@ number of registers, we need the stack to store local variables and your
 precious cat pictures. `RSP` points to the top of the stack or the lower most
 address. You can allocate space on the stack by decrementing the stack pointer
 like `RSP = RSP - 16`. Stack allocation and deallocation is a single numeric
-operation and super fast. Local variables slowly grow the stack downwards and
-when the function returns, we can quickly set RSP back to its initial value to
-reclaim all the space in one go! There is no need for a garbage collector to
+operation and hence super fast. Local variables slowly grow the stack downwards
+and when the function returns, we can quickly set RSP back to its initial value
+to reclaim all the space in one go! There is no need for a garbage collector to
 reclaim the space used by local variables after the function returns. C calls
 them automatic variables.
 
-**TODO:** Use the real line numbers than the sequence markdown generates. Be
-explicit about the links.
+Now to explain the sample code.
 
-1. The lines that start with a dot is a directive to the assembler. `.text`
-marks the starting of the code section.
+➊ The lines that start with a dot is a directive to the assembler. `.text` marks
+   the starting of the code section.
 
-2. `.intel_syntax noprefix` denotes that we are going to use the Intel syntax.
+❷ `.intel_syntax noprefix` denotes that we are going to use the Intel syntax.
    The other option is AT&T which I find ugly and counter intuitive.
 
-8. Assembly code is a list of instructions and most of the mnemonics like ADD,
-   RET, CALL etc are obvious. MOV instruction is used for moving memory. Fun
-   fact: the instruction has so many variations that this single instruction is
-   [turning compete][turing complete]. `mov dword ptr [rsp - 4], edi` moves the
-   contents of the 32 bit register `EDI` into the memory location with address
-   `RSP - 4`. The `[]` is an address dereferencing operator. Now you know where
-   the pointer arithmetic in C comes from - there is hardware support to do it
-   very efficiently. And now you know why you should avoid such low level memory
-   unsafe languages - it's very easy to get this wrong unless you are really
-   careful. This instruction roughly transalates to the C snippet `*(RSP - 4) =
-   EDI`.
+❸ Declares a function called `add`. Directive `.globl add` makes the symbol
+   global such that the linker can find it. Note that there are no function
+   arguments - this is because assembly functions are just labels and gotos. The
+   way functions arguments are passed in and the result returned is called a
+   [calling convention][convention] and there are several of them. The [System V
+   AMD64 ABI][sysv] convention for example passes the first 6 arguments in
+   registers registers RDI, RSI, RDX, RCX, R8 and R9 and expects the return
+   value in RAX. The C calling convention (cdecl) at the same time passes all
+   arguments in the stack in reverse order and the result is returned in RAX. As
+   long as the function caller and callee agree upon a specific convention, you
+   are free to do it however you want.
+
+❹ Assembly code is a list of instructions and most of the mnemonics like ADD,
+   RET, CALL etc do the obvious thing. MOV instruction is used for moving
+   memory. Fun fact: the instruction has so many variations that this single
+   instruction is [turning compete][turing complete]. `mov dword ptr [rsp - 4],
+   edi` moves the contents of the 32 bit register `EDI` into the memory location
+   with address `RSP - 4`. The `[]` is an address dereferencing operator. Now
+   you know where the pointer arithmetic in C comes from - there is hardware
+   support to do it very efficiently. This instruction roughly transalates to
+   the C snippet `*(RSP - 4) = EDI`.
+
+❺ Save the second argument in the stack.
+
+❻ The instruction `mov esi, dword ptr [rsp - 4]` moves the value from memory
+   back to the register `ESI`. This might seem unnecessary and you are right.
+   There is no guarantee that your compiler will generate optimal machine code
+   for all cases.
+
+❼ The ADD instruction takes 2 arguments and puts the sum of both of them in the
+   first. `ADD a, b` is equivalent to `a = a + b`. Here we add the contents of
+   the register `ESI` and memory address `RSP - 8` and leaves the result in the
+   register.
+
+❽ Values are returned to the caller by moving it to the `RAX` register.
+
+❾ Return back to the caller.
+
+> We could have written the add function in much more efficient ways without
+> touching the memory and stack at all, but I hope this slightly non optimal
+> example explained enough concepts to tackle larger problems.
+
+❿ Allocate 24 bytes on the stack to hold the local variables.
+
+⓫ and ⓬ Save the value of `a` and `b` to memory.
+
+⓭ and ⓮ Copy the first argument to `EDI` and second argument to `ESI` before the
+   function call as per the Sys V convention.
+
+⓯ Call the function. The result will be available in `RAX` after the function
+   call.
+
+⓰ Reclaim the stack space used for local variables.
+
+⓱ Return `RAX` from ⓰ back to the caller of main.
+
+Phew! We covered a lot. Take a break. Breathe.
 
   > The generated assembly is slightly edited for clarity. Use the flags
   > `-fno-asynchronous-unwind-tables -fomit-frame-pointer` to generate code that
@@ -210,8 +249,7 @@ marks the starting of the code section.
 _Exercises:_
 
 1. Compare the code generated by GCC and Clang.
-1. Drop the `-masm=intel` flag to generate AT&T syntax. This is the form the
-   paper uses but I prefer intel.
+1. Drop the `-masm=intel` flag to generate AT&T syntax.
 1. Observe changes in generated code with varying optimization levels like
    `-O1`, `-O3` etc.
 1. Read the assembly generated by larger C programs for other features like
@@ -236,5 +274,8 @@ _Exercises:_
 ---
 
 [chez]: https://cisco.github.io/ChezScheme
+[convention]: https://en.wikipedia.org/wiki/X86_calling_conventions
 [paper]: http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf
 [r5rs]: http://schemers.org/Documents/Standards/R5RS
+[sysv]: http://wiki.osdev.org/System_V_ABI#x86-64
+[turing complete]: https://www.cl.cam.ac.uk/~sd601/papers/mov.pdf
