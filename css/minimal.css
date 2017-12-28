@@ -71,6 +71,10 @@ code, pre {
   font-size:12px;
 }
 
+code.highlighter-rouge {
+  background: #f0f0f0;
+}
+
 pre {
   padding:8px 15px;
   background: #f8f8f8;
