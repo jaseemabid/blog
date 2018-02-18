@@ -36,6 +36,11 @@ img { width: 100%; }
 
 }
 
+/* Make big urls stand out even when visited */
+h2 a {
+    color: red;
+}
+
 .hljs-solarized-dark .hljs {
     overflow: hidden !important;
     overflow-x: hidden !important;
