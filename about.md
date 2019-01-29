@@ -6,7 +6,7 @@ permalink: /about
 
 # Hi! I'm Jaseem Abid 👋
 
-I'm a computer programmer at interested in compilers, distributed systems,
+I'm a computer programmer interested in compilers, distributed systems,
 programming languages and Haskell.
 
 I'm an extrovert who loves meeting people. Talk to me about religion, politics,
