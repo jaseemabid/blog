@@ -271,7 +271,7 @@ _Exercises:_
 [jvns stack]: https://jvns.ca/blog/2016/02/27/a-few-notes-on-the-stack
 [paper]: http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf
 [r5rs]: http://schemers.org/Documents/Standards/R5RS
-[source]: https://github.com/jaseemabid/jaseemabid.github.com/blob/master/preview/inc.md
+[source]: https://github.com/jaseemabid/blog/blob/master/preview/inc.md
 [sysv]: http://wiki.osdev.org/System_V_ABI#x86-64
 [threads]: http://nullprogram.com/blog/2015/05/15/
 [turing complete]: https://www.cl.cam.ac.uk/~sd601/papers/mov.pdf

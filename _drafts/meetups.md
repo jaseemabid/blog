@@ -101,7 +101,7 @@ Let me know your thoughts on twitter.
 
 [haskell]: google.com
 [pwl]: paperswelove.org "Papers we love"
-[pwl_post]: jaseemabid.github.io/2016/11/24/pwl.html
+[pwl_post]: https://blog.jabid.in/2016/11/24/pwl.html
 
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
