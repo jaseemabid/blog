@@ -1,7 +1,6 @@
 ---
 layout: post
 title: We want to hire ourselves
-hidden: true
 ---
 
 I want to talk about hiring biases.
