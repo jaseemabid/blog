@@ -1,50 +1,35 @@
-class: center, middle
+class: center
 
 # Incremental approach to compiler construction
 
 ### Jaseem Abid
 
 ---
-class: center, middle
+class: middle, center
 
-# Let's build a compiler even if you know nothing about it
-
----
-class: center, middle
-
-# Incrementally
+## Build a compiler for a subset of scheme
+## by the end of the talk
+## even if you know nothing about compilers
 
 ---
-class: center, middle
-
-# Agenda:
-
-## Build a compiler for a small subset of scheme by the end of the talk
-
----
-class: center, middle
-
-# Abstract:
+class: middle
 
 > Real-life compilers are too complex to serve as an educational tool. And the
 > gap between real-life compilers and the educational toy compilers is too wide.
 
 ---
-class: center, middle
-
+class: middle
 
 > We show that building a compiler can be as easy as building an interpreter.
 
 ---
-class: center, middle
-
+class: middle
 
 > The compiler we construct accepts a large subset of the Scheme programming
 > language and produces assembly code for the Intel-x86 architecture
 
 ---
-class: center, middle
-
+class: middle
 
 > Every step yields a fully working compiler for a progressively expanding
 > subset of Scheme. Every compiler step produces real assembly code that can be
@@ -53,12 +38,7 @@ class: center, middle
 ---
 class: center, middle
 
-# :)
-
----
-class: center, middle
-
-# The simplest language in existence
+# 🎊
 
 ---
 class: center, middle
@@ -68,127 +48,133 @@ class: center, middle
 ---
 class: center, middle
 
-# 0 or 1
-
----
-class: center, middle
-
-# The constant factors
-
-- exit codes
-- glibc
-- object files
-- main
-- elf
-- argc and argv
-- executable
-- process life time
-- linkers
-
----
-class: center, middle
-
-# Let's start by asking someone who knows how to do it
-
----
-class: center, middle
-
 # gcc!
 
 ---
-class: center, middle
 
-#  file 1.c
+### $ cat 1.c
 
-     1	#include <stdio.h>
-     2	#include <stdlib.h>
-     3
-     4	int main() {
-     5      exit(1);
-     6	}
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    exit(1);
+}
+```
+
+---
+
+### $ gcc -S ... 1.c -o - | cat -n
+
+```c
+ 1    .file   "1.c"
+ 2    .intel_syntax noprefix
+ 3    .text
+ 4    .section  .text.startup,"ax",@progbits
+ 5    .p2align 4
+ 6    .globl  main
+ 7    .type   main, @function
+ 8  main:
+ 9    sub   rsp, 8
+10    mov   edi, 1
+11    call  exit
+12    .size   main, .-main
+13    .ident  "GCC: (GNU) 9.1.0"
+14    .section  .note.GNU-stack,"",@progbits
+```
+
+???
+
+gcc -S -m64 -masm=intel -O3 -fomit-frame-pointer -fno-asynchronous-unwind-tables 1.c -o - | cat -n
+
+---
+
+### $ vi 1.s
+
+```c
+ 1    .intel_syntax noprefix
+ 2    .text
+ 3    .section  .text.startup,"ax",@progbits
+ 4    .globl  main
+ 5    .type   main, @function
+ 6  main:
+ 7    sub   rsp, 8
+ 8    mov   edi, 1
+ 9    call  exit
+10    .size   main, .-main
+```
 
 ---
 class: center, middle
 
-#  $ gcc -S -O3 --omit-frame-pointer 1.c -o - | cat -n
-
-     1		.file	"1.c"
-     2		.section	.text.startup,"ax",@progbits
-     3		.p2align 4,,15
-     4		.globl	main
-     5		.type	main, @function
-     6	main:
-     7	.LFB24:
-     8		.cfi_startproc
-     9		subq	$8, %rsp
-    10		.cfi_def_cfa_offset 16
-    11		movl	$1, %edi
-    12		call	exit@PLT
-    13		.cfi_endproc
-    14	.LFE24:
-    15		.size	main, .-main
-    16		.ident	"GCC: (GNU) 7.1.1 20170630"
-    17		.section	.note.GNU-stack,"",@progbits
+# 🤔
 
 ---
 class: center, middle
 
-# Still a lot of things going on there!
+## scheme_entry
 
 ---
-class: center, middle
+### $ cat 2.c
 
-# Cheat a bit
----
-class: center, middle
-
-# scheme_entry
----
-class: center, middle
-
-# file 2.c
-
-     1    int scheme_entry() {
-     2        return 42;
-     3    }
+```c
+int scheme_entry() {
+    return 42;
+}
+```
 
 ---
-class: center, middle
+### $ cat 3.c
 
-# file 2.S
+```c
+#include <stdio.h>
 
-     1    scheme_entry:
-     2        movl	$42, %eax
-     3        ret
+extern int scheme_entry();
 
----
-class: center, middle
-
-# file 3.c
-
-     1	#include <stdio.h>
-     2
-     3	extern int scheme_entry();
-     4
-     5	int main() {
-     6      int val = scheme_entry();
-     7      printf("%d\n", val);
-     8      return 0;
-     9	}
-    10
+int main() {
+    int val = scheme_entry();
+    printf("%d\n", val);
+    return 0;
+}
+```
 
 ---
-class: center, middle
+### $ cat inc.S
 
-# ~
+```c
+1  scheme_entry:
+2    mov	rax, 42
+3    ret
+```
+
+---
+class: middle
+
+# exec
 
     $ gcc 3.c inc.s
     $ ./a.out
-    0
+    42
+
 ---
 class: center, middle
 
-# BAM!
+# 💥
+
+---
+class: middle
+
+# The constant factors
+
+- Conveniently hiding some OS details
+- Link to glibc
+- Process life time
+- Avoid object files & ELF for now
+- argc and argv
+- IO
+- linkers
+- ...
 
 ---
 class: center, middle
