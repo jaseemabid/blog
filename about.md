@@ -20,7 +20,7 @@ I work at [Monzo](https://monzo.com) in London making banking awesome! 🚀 Its
 been an [incredibly rewarding journey][monzo blog] so far.
 
 You can reach me over [email](mailto:jaseemabid@gmail.com) or
-<i class="fa fa-twitter"></i> [@jaseemabid](https://twitter.com/jaseemabid)
+<i class="fab fa-twitter"></i> [@jaseemabid](https://twitter.com/jaseemabid)
 
 Find my (slightly outdated) [resume](/Jaseem Abid.pdf) here, but I'm not looking
 for a job right now.
