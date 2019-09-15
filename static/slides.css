@@ -32,9 +32,7 @@ img { width: 100%; }
 
 .huge h1 {font-size: 300px}
 
-.smaller {
-
-}
+.emoji h1 {font-size: 200px !important}
 
 /* Make big urls stand out even when visited */
 h2 a {

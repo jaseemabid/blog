@@ -1,176 +1,159 @@
-class: center
+class: middle, center
+# An Incremental approach to compiler construction
 
-# Incremental approach to compiler construction
+### blog.jabid.in/talks/inc
 
 ### Jaseem Abid
+### @jaseemabid
+
+---
+![](./paper.png)
 
 ---
 class: middle, center
 
-## Build a compiler for a subset of scheme
-## by the end of the talk
-## even if you know nothing about compilers
+## How to build toy compilers for fun and profit
 
 ---
-class: middle
-
-> Real-life compilers are too complex to serve as an educational tool. And the
-> gap between real-life compilers and the educational toy compilers is too wide.
-
----
-class: middle
-
-> We show that building a compiler can be as easy as building an interpreter.
-
----
-class: middle
-
-> The compiler we construct accepts a large subset of the Scheme programming
-> language and produces assembly code for the Intel-x86 architecture
-
----
-class: middle
-
-> Every step yields a fully working compiler for a progressively expanding
-> subset of Scheme. Every compiler step produces real assembly code that can be
-> assembled then executed directly by the hardware.
-
----
-class: center, middle
-
-# 🎊
-
----
-class: center, middle
-
-# exit 1
-
----
-class: center, middle
-
-# gcc!
-
----
-
-### $ cat 1.c
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    exit(1);
-}
-```
-
----
-
-### $ gcc -S ... 1.c -o - | cat -n
-
-```c
- 1    .file   "1.c"
- 2    .intel_syntax noprefix
- 3    .text
- 4    .section  .text.startup,"ax",@progbits
- 5    .p2align 4
- 6    .globl  main
- 7    .type   main, @function
- 8  main:
- 9    sub   rsp, 8
-10    mov   edi, 1
-11    call  exit
-12    .size   main, .-main
-13    .ident  "GCC: (GNU) 9.1.0"
-14    .section  .note.GNU-stack,"",@progbits
-```
+![](./github.png)
 
 ???
 
-gcc -S -m64 -masm=intel -O3 -fomit-frame-pointer -fno-asynchronous-unwind-tables 1.c -o - | cat -n
+- This paper is all about implementation details.
 
 ---
+![](./pitch.png)
 
-### $ vi 1.s
+???
 
-```c
- 1    .intel_syntax noprefix
- 2    .text
- 3    .section  .text.startup,"ax",@progbits
- 4    .globl  main
- 5    .type   main, @function
- 6  main:
- 7    sub   rsp, 8
- 8    mov   edi, 1
- 9    call  exit
-10    .size   main, .-main
-```
+- Elevator pitch
+- This works
 
 ---
-class: center, middle
+![](./abstract.png)
 
-# 🤔
+???
 
----
-class: center, middle
-
-## scheme_entry
+- Educational approach, taking the wizards out of the compilers
 
 ---
-### $ cat 2.c
+class: center, middle, emoji
 
-```c
-int scheme_entry() {
-    return 42;
-}
-```
+# 🚀
 
 ---
-### $ cat 3.c
+![](./asm.png)
 
-```c
-#include <stdio.h>
+???
 
-extern int scheme_entry();
-
-int main() {
-    int val = scheme_entry();
-    printf("%d\n", val);
-    return 0;
-}
-```
+A bit more details into how this works in 3 steps before jumping into steps.
 
 ---
-### $ cat inc.S
-
-```c
-1  scheme_entry:
-2    mov	rax, 42
-3    ret
-```
+![](./runtime.png)
 
 ---
-class: middle
-
-# exec
-
-    $ gcc 3.c inc.s
-    $ ./a.out
-    42
+![](./clang.png)
 
 ---
-class: center, middle
+![](./approach 1.png)
+
+???
+
+- Why is this approach exciting?
+
+---
+![](./approach 2.png)
+
+---
+![](./prilim.png)
+
+---
+![](./audience.png)
+
+---
+![](./source.png)
+
+---
+![](./impl.png)
+
+???
+
+- Scheme saves you the trouble of writing a parser
+- And parsers are the least fun
+
+---
+![](./target.png)
+
+???
+
+- Assembly isn't that hard and this is a good way to learn about it
+
+---
+![](./iter 1.png)
+
+---
+![](./iter 2.png)
+
+---
+![](./24.png)
+
+---
+class: center, middle, emoji
+
+# ⌛
+
+???
+
+- There really isn't enough time to cover 24, I'd be happy with 5
+- The first step is always the hardest ;)
+
+---
+![](./step 1.png)
+
+???
+
+- Spend as much time as required here in this step to make things clear
+
+---
+![](./num.c.png)
+
+---
+![](./num.s.png)
+
+???
+
+- https://sourceware.org/binutils/docs/as/P2align.html#P2align
+
+---
+![](./compiler.png)
+
+???
+
+- Is this a compiler yet?
+
+---
+![](./runtime.png)
+
+---
+class: center, middle, emoji
+
+# 😌✋
+
+---
+class: center, middle, emoji
 
 # 💥
 
 ---
 class: middle
 
-# The constant factors
+# Recap; why did we do all that?
 
-- Conveniently hiding some OS details
-- Link to glibc
-- Process life time
+- Its far easier to generate ASM rather than a binary
 - Avoid object files & ELF for now
+- A tiny runtime in C is really handy
+- Conveniently hiding some OS details
+- Link to libc for stdlib
 - argc and argv
 - IO
 - linkers
@@ -179,7 +162,12 @@ class: middle
 ---
 class: center, middle
 
-# Step 0.
+# Step 1: Integers
+# ✅
+
+???
+
+# TODO: Note the time at this point
 
 ---
 class: center, middle
@@ -187,45 +175,78 @@ class: center, middle
 # 24 more
 
 ---
-class: center, middle
-
-# Primiliminary issues
-
-- Target audience
-- What do I need to know?
-- Source language
-- Target language
-- Development methodology
-- Testing infrastructure
-- End goal
-- Talk POV
-
----
-class: center, middle
-
-# 1. Integers
-
----
-class: center, middle
+class: middle
 
 # 2. Immediate Constants
 
-- Machine words
-- Types must be available at runtime
-- integer?, printf
-- mask and tag
+- Types that fit into a machine word
+- `int`,  `bool`,  `char`,  `()`
+- Types must be available at runtime for `integer?`, `printf` etc
+- Tags with bit masking
 
 ---
-class: center, middle
+![](./immediate.png)
 
-# 3. Unary primitives
+---
+![](./immediate.rs.png)
 
-  - Primitives that accept one word
-  - No need for a function call
-  - Inline asm
-  - inc, dec, int->char, zero?, null?
+???
+
+Note the differences from the paper
+
+---
+![](./immediate.c.png)
+
+---
+![](./unary.png)
+
+???
+
+- Primitives that accept one word
+- No need for a function call
+- Inline asm
+- inc, dec, int->char, zero?, null?
+- Talk about insights
+
+---
+![](./step 4.png)
+
+???
+
+Binary primitives, no surprises here
+
+---
+![](./step 5.png)
+
+???
+
+Local variables in stack
+
+---
+![](./vars.png)
+
+---
+![](./vars.rs.png)
+
+---
+![](./step 6.png)
+
+???
+
+Least fun parts, gotta know some asm jumping
+
+---
+![](./cond.png)
+
+---
+![](./cond.rs.png)
 
 ---
 class: center, middle
 
 # ???
+
+---
+class: center, middle
+
+# That's all folks (for now)!
