@@ -17,9 +17,8 @@ class: middle, center
 ---
 ![](./github.png)
 
-???
-
-- This paper is all about implementation details.
+---
+![](./docs.rs.png)
 
 ---
 ![](./pitch.png)
@@ -125,6 +124,20 @@ class: center, middle, emoji
 - https://sourceware.org/binutils/docs/as/P2align.html#P2align
 
 ---
+class: center, middle
+
+<img src="./register.png" style="width: 70%;">
+
+https://nullprogram.com/blog/2015/05/15
+
+???
+
+The 8086 was introduced in 1978 as a fully 16-bit extension of Intel's 8-bit
+8080 microprocessor
+
+Ref: http://flint.cs.yale.edu/cs421/papers/x86-asm/asm.html
+
+---
 ![](./compiler.png)
 
 ???
@@ -226,6 +239,13 @@ Local variables in stack
 ![](./vars.png)
 
 ---
+class: middle, center
+
+<img src="./stackframe1.png" style="width: auto">
+
+https://eli.thegreenplace.net/2011/02/04/where-the-top-of-the-stack-is-on-x86
+
+---
 ![](./vars.rs.png)
 
 ---
@@ -242,9 +262,88 @@ Least fun parts, gotta know some asm jumping
 ![](./cond.rs.png)
 
 ---
+![](./step 7.png)
+
+---
+![](./heap.png)
+
+---
+![](./align.png)
+
+---
+![](./pair.png)
+
+---
+![](./cadr.png)
+
+???
+
+Size is off!
+
+---
+
+![](./pairs.git.png)
+
+---
+class: middle
+
+## Interlude
+
+- Clean 64 bit everywhere
+- Simpler 3 bit tagging scheme for everything
+- Wait! `car` isn't even a function?
+- Strings and vectors!
+
+---
+class: middle, center, huge
+
+# λ
+
+---
+![](./step 8.png)
+
+---
+![](./functions.git.png)
+
+---
 class: center, middle
 
-# ???
+# Exercise for the reader?
+
+---
+class: middle
+
+## Final thoughts.
+### Why would you do this to yourself Jaseem?
+
+--
+1. Immensely challenging & intellectually rewarding
+
+--
+1. Understanding the true cost of high level constructs
+
+--
+1. Understanding what compilers can and cannot do!
+
+--
+1. Understanding memory management & language runtimes
+
+--
+1. Rust is pure fun!
+
+--
+1. Systems programming is fun!
+
+--
+1. Chase rabbit holes! 🐰🕳
+
+--
+1. Makes me ❤ programming again
+
+???
+
+I babysit servers at work and there is only so much you can do it before you
+irreversibly burn out. This keeps me intellectually challenged.
 
 ---
 class: center, middle
