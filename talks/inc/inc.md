@@ -15,6 +15,11 @@ class: middle, center
 ## How to build toy compilers for fun and profit
 
 ---
+class: middle, center
+
+## Rediscovering the joy of programming
+
+---
 ![](./github.png)
 
 ---
