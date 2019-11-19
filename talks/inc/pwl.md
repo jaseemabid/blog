@@ -1,7 +1,7 @@
 class: middle, center
 # An Incremental approach to compiler construction
 
-### blog.jabid.in/talks/inc
+### blog.jabid.in/talks/inc/pwl
 
 ### Jaseem Abid
 ### @jaseemabid
