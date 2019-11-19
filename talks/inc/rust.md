@@ -34,13 +34,6 @@ class: middle, center
 - This works
 
 ---
-![](./abstract.png)
-
-???
-
-- Educational approach, taking the wizards out of the compilers
-
----
 ![](./asm.png)
 
 ???
@@ -52,6 +45,13 @@ A bit more details into how this works in 3 steps before jumping into steps.
 
 ---
 ![](./clang.png)
+
+---
+![](./abstract.png)
+
+???
+
+- Educational approach, taking the wizards out of the compilers
 
 ---
 ![](./approach 1.png)
@@ -119,9 +119,6 @@ Ref: http://flint.cs.yale.edu/cs421/papers/x86-asm/asm.html
 ???
 
 - Is this a compiler yet?
-
----
-![](./runtime.png)
 
 ---
 class: center, middle, emoji
