@@ -41,11 +41,6 @@ class: middle, center
 - Educational approach, taking the wizards out of the compilers
 
 ---
-class: center, middle, emoji
-
-# 🚀
-
----
 ![](./asm.png)
 
 ???
@@ -67,30 +62,6 @@ A bit more details into how this works in 3 steps before jumping into steps.
 
 ---
 ![](./approach 2.png)
-
----
-![](./prilim.png)
-
----
-![](./audience.png)
-
----
-![](./source.png)
-
----
-![](./impl.png)
-
-???
-
-- Scheme saves you the trouble of writing a parser
-- And parsers are the least fun
-
----
-![](./target.png)
-
-???
-
-- Assembly isn't that hard and this is a good way to learn about it
 
 ---
 ![](./iter 1.png)
@@ -241,79 +212,66 @@ Binary primitives, no surprises here
 Local variables in stack
 
 ---
-![](./vars.png)
-
----
-class: middle, center
-
-<img src="./stackframe1.png" style="width: auto">
-
-https://eli.thegreenplace.net/2011/02/04/where-the-top-of-the-stack-is-on-x86
-
----
 ![](./vars.rs.png)
-
----
-![](./step 6.png)
-
-???
-
-Least fun parts, gotta know some asm jumping
-
----
-![](./cond.png)
-
----
-![](./cond.rs.png)
-
----
-![](./step 7.png)
-
----
-![](./heap.png)
-
----
-![](./align.png)
-
----
-![](./pair.png)
-
----
-![](./cadr.png)
-
-???
-
-Size is off!
-
----
-
-![](./pairs.git.png)
-
----
-class: middle
-
-## Interlude
-
-- Clean 64 bit everywhere
-- Simpler 3 bit tagging scheme for everything
-- Wait! `car` isn't even a function?
-- Strings and vectors!
-
----
-class: middle, center, huge
-
-# λ
-
----
-![](./step 8.png)
-
----
-![](./functions.git.png)
 
 ---
 class: center, middle
 
-# Exercise for the reader?
+# But Rust?
+
+---
+class: middle
+
+### 1. Expressive types for representing and working with AST
+
+--
+### 2. Error handling that is actually fun!
+
+--
+### 3. Rich stdlib, all I needed was nom, quickcheck and colored
+
+--
+### 4. Small traits are great!
+
+--
+### 5. Modules are brilliant!
+
+---
+class: middle
+
+### 6. Explicit mutability
+
+--
+### 7. Explicit unsafe
+
+--
+### 8. FFI that isn't black magic!
+
+--
+### 9. Tooling! Rust docs, test framework and editor support
+
+--
+### 10. Community ♥
+
+---
+class: middle
+
+# The wishlist
+
+--
+### 1. Sometimes ownership can be tricky and you don't care
+
+--
+### 2. Knowing the size at compile time can be tricky.
+
+--
+### 3. Refinement types for AST
+
+--
+### 4. Better types for representing things like x86 ASM
+
+--
+### 5. Persistent structs
 
 ---
 class: middle
@@ -344,11 +302,6 @@ class: middle
 
 --
 1. Makes me ❤ programming again
-
-???
-
-I babysit servers at work and there is only so much you can do it before you
-irreversibly burn out. This keeps me intellectually challenged.
 
 ---
 class: center, middle
