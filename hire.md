@@ -36,7 +36,7 @@ Some of the (technical) things I would really appreciate about a new job are,
 1. But if that startup is trying to formally verify software or write the most
    high performing TCP stack, I'd be very interested in talking to them.
 
-1. I don't believe in most crypto currencies in its current form.
+1. I don't believe in most crypto-currencies or blockchains in its current form.
 
 1. I prefer to work in an office, I've not been very productive working remotely
    in the past.
