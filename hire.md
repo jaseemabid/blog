@@ -8,7 +8,11 @@ Thanks for reaching out to me with a new opportunity.
 I'm interested in compilers, distributed systems and programming languages. I
 care a lot about correctness and performance of software.
 
-Some of the (technical) things I would really appreciate about a new job are,
+Some of the things I would really appreciate about a new job are,
+
+1. Culture and being kind to each other matters a lot, and it is the one lesson
+   I learned at Monzo. Almost nothing about a job is worth it in a toxic
+   environment.
 
 1. Working at [Monzo](https://monzo.com) has been an [incredibly rewarding
    journey][monzo blog] 🚀 so far but an entirely different set of engineering
@@ -23,11 +27,14 @@ Some of the (technical) things I would really appreciate about a new job are,
    stage startups. Anecdotally I've been able to focus on fewer but more complex
    engineering problems for a longer duration in such environments.
 
-1. I'm not interested in Go, Kubernetes, Micro services and most of recent cloud
-   native buzz. I'm far more excited about scaling robust old school Django +
-   PostgreSQL apps than managing 1000+ micro services.
+1. I'm not interested in Go. I wrote a lot of Go at Monzo and *I really don't
+   like it*.
 
-1. Specifically, I wrote a lot of Go at Monzo and *I really don't like it*.
+1. I tend to prefer old school rock solid tech over the new shiny things. I'm
+   far more excited about scaling robust old school Django + PostgreSQL apps
+   than managing 1000+ micro services.
+
+1. This doesn't mean I'm not constantly learning new things. I do.
 
 1. I am [usually interested in technology and systems a lot more than
    products][why]. I might be the wrong fit for a young startup that is
