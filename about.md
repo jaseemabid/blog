@@ -16,8 +16,9 @@ I spent 12 weeks at [Recurse Center](https://recurse.com) from May 22 to Aug 10
 2017 trying to be a better programmer. It was amazing and [I wrote about what I
 did there][rc blog].
 
-I work at [Monzo](https://monzo.com) in London making banking awesome! 🚀 Its
-been an [incredibly rewarding journey][monzo blog] so far.
+I work at Apple as a Site Reliability Engineer in London. Previously I worked at
+[Monzo](https://monzo.com) making banking awesome! 🚀 Its been an [incredibly
+rewarding journey][monzo blog] so far.
 
 You can reach me over [email](mailto:jaseemabid@gmail.com) or
 <i class="fab fa-twitter"></i> [@jaseemabid](https://twitter.com/jaseemabid)
