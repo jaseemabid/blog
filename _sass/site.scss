@@ -43,3 +43,11 @@ table.posts {
         }
     }
 }
+
+div.footnotes:before {
+    content: "Notes";
+    display: inline-block;
+    font-size: 1.3em;
+    margin: 60px auto 10px;
+  }
+
