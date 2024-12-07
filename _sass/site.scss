@@ -1,4 +1,116 @@
-header img.me {
+// Desktop layout in 3 columns
+@media (min-width: 1200px) {
+  // Narrow middle column with TOC on right
+  .wrapper-narrow {
+    width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr 400px;
+  }
+
+  // Wide middle column without TOC on right
+  .wrapper-wide {
+    width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+  }
+
+  header {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  nav {
+    grid-column: 3;
+    padding: 0 10px;
+  }
+
+  article,
+  div.home {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  table.posts {
+    margin: 50px 10px 0 10px;
+  }
+
+  footer {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .rc-scout {
+    grid-row: 2;
+    grid-column: 2;
+  }
+}
+
+// Wide displays starting from iPad Pro
+@media (min-width: 1366px) {
+  .wrapper-narrow {
+    width: 1366px;
+    grid-template-columns: 250px 1fr 450px;
+  }
+  .wrapper-wide {
+    width: 1366px;
+    grid-template-columns: 250px 1fr 450px;
+  }
+
+  nav {
+    padding: 0 20px;
+  }
+}
+
+// iPad Pro and smaller
+@media print, screen and (max-width: 1200px) {
+  header,
+  footer {
+    float: none;
+    position: static;
+    width: auto;
+  }
+
+  nav {
+    display: none; // Remove TOC
+  }
+
+  // Move header to the middle
+  header {
+    display: block;
+    width: 200px;
+    margin: 40px auto;
+  }
+}
+
+// iPhone Pro 14 and smaller
+@media print, screen and (max-width: 430px) {
+  body {
+    padding: 0px;
+    word-wrap: break-word;
+  }
+
+  header li,
+  header ul li + li + li {
+    width: auto;
+  }
+}
+
+@media print {
+  body {
+    padding: 0.4in;
+    font-size: 12pt;
+    color: #444;
+  }
+}
+
+/* General style */
+
+header {
+  img.me {
     border-radius: 50%;
     border: 1px solid #f2f3f3;
     display: block;
@@ -6,48 +118,90 @@ header img.me {
     max-width: 140px;
     padding: 5px;
     transition: all 0.2s ease-in-out;
-}
+  }
 
-@media print, screen and (max-width: 480px) {
-    header li, header ul li + li + li {
-        width: auto;
-    }
-}
-
-header ul.icons {
+  ul.icons {
     list-style: none;
-    padding:0;
+    padding: 0;
     text-align: center;
 
     li {
-        display: inline-block;
-        margin: 5px;
+      display: inline-block;
+      margin: 5px;
 
-        a {
-            color: gray;
-            font-size: 20px;
-        }
+      a {
+        color: gray;
+        font-size: 20px;
+      }
     }
+  }
+}
+
+// Content wrapper around everything injected from markdown. Front page, blog,
+// about etc.
+.content {
+  padding: 10px;
 }
 
 table.posts {
-    margin-top: 50px;
+  margin-top: 50px;
 
-    td {
-        border-bottom: 1px solid white;
-        padding-left: 0;
+  td {
+    border-bottom: 1px solid white;
+    padding-left: 0;
 
-        a {
-            color:#222;
-            font-size: 20px;
-        }
+    a {
+      color: #222;
+      font-size: 20px;
     }
+  }
+}
+
+nav {
+  h2 {
+    position: sticky;
+    top: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    position: sticky;
+    top: 4em;
+    padding: 0;
+  }
+
+  ul ul {
+    padding: 0 20px;
+  }
+
+  li {
+    margin: 1rem 0.2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: #444;
+  }
+}
+
+.post-meta {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  margin-bottom: 30px;
+
+  time {
+    grid-column: 1;
+  }
+
+  hr {
+    grid-column: 2;
+    margin: auto 10px auto 0;
+  }
 }
 
 div.footnotes:before {
-    content: "Notes";
-    display: inline-block;
-    font-size: 1.3em;
-    margin: 60px auto 10px;
-  }
-
+  content: 'Notes';
+  display: inline-block;
+  font-size: 1.3em;
+  margin: 60px auto 10px;
+}

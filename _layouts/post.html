@@ -1,28 +1,39 @@
 <!DOCTYPE html>
+<!-- This site was last updated at {{ site.time | date_to_rfc822 }} -->
 <html>
   {% include head.html %}
 
   <body>
-
-    <div class="wrapper">
+    <div class="wrapper-narrow">
       {% include header.html %}
-      <section>
 
+      {% if page.toc %}
+      <nav>
+        <h2>Table of Contents</h2>
+        {% toc %}
+      </nav>
+      {% endif %}
+
+      <article class="content">
         <h1>{{ page.title }}</h1>
 
-        <p class="post-meta">
+        <div class="post-meta">
           <time datetime="{{ page.date | date_to_xmlschema }}">
-            {{ page.date | date: "%b %-d, %Y" }}
+            {{ page.date | date: "%B %-d, %Y" }}
           </time>
 
-        <article>
-          {{ content }}
-        </article>
+          <hr></hr>
+        </div>
+
+        {{ content}}
+      </article>
 
       <br/><br/>
-      <script async defer src="https://www.recurse-scout.com/loader.js?t=298747a8a50ca362138e799f749fcf3f"></script>
 
-      </section>
+      <script async defer
+        src="https://www.recurse-scout.com/loader.js?t=298747a8a50ca362138e799f749fcf3f">
+      </script>
+
       {% include footer.html %}
   </body>
 </html>

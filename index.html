@@ -2,28 +2,23 @@
 layout: default
 ---
 
-<div class="home">
+<h1>Blogs and Musings</h1>
 
-  <h1>Blogs and Musings</h1>
-
-  <table class="posts">
-    <tbody>
-      {% for post in site.posts %}
-      {% unless post.hidden %}
-      <tr>
-        <td>
-          <a href="{{ post.url | prepend: site.baseurl }}">
-            {{post.title}}
-          </a>
-        </td>
-        <td>
-          {{ post.date | date: "%b %-d, %Y" }}
-        </td>
-      </tr>
-      {% endunless %}
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-
-
+<table class="posts">
+  <tbody>
+    {% for post in site.posts %}
+    {% unless post.hidden %}
+    <tr>
+      <td>
+        <a href="{{ post.url | prepend: site.baseurl }}">
+          {{post.title}}
+        </a>
+      </td>
+      <td>
+        {{ post.date | date: "%b %-d, %Y" }}
+      </td>
+    </tr>
+    {% endunless %}
+    {% endfor %}
+  </tbody>
+</table>
