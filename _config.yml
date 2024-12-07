@@ -12,3 +12,6 @@ username: jaseemabid
 
 # Build settings
 markdown: kramdown
+
+plugins:
+  - jekyll-toc
