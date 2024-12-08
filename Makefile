@@ -16,3 +16,8 @@ setup:
 	bundle config --local path .bundle
 	bundle install
 	bundle update
+
+# Fix up ruby version mismatch b/w Homebrew and GH Actions
+localfix:
+	ruby --version  | awk '{print $2}' > .ruby-version
+
