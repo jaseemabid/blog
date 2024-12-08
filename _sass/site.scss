@@ -97,6 +97,10 @@
   header ul li + li + li {
     width: auto;
   }
+
+  table.posts td a {
+    font-size: 16px;
+  }
 }
 
 @media print {
@@ -154,6 +158,10 @@ table.posts {
       color: #222;
       font-size: 20px;
     }
+  }
+
+  .nobr {
+    white-space: nowrap;
   }
 }
 
