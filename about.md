@@ -27,7 +27,13 @@ fa-bluesky"></i> [@jabid.in](https://bsky.app/profile/jabid.in)
 
 Find my [resume](/Jaseem Abid.pdf) here.
 
-<script async defer src="https://www.recurse-scout.com/loader.js?t=298747a8a50ca362138e799f749fcf3f"></script>
+This site is built with [Jekyll] and hosted on Github Pages. The theme is a derivation of
+[minimal] by [orderedlist].
 
-[rc blog]: /2017/08/10/rc.html
+{% include footer.html %}
+
+[Jekyll]: https://jekyllrb.com
+[minimal]: https://github.com/orderedlist/minimal
 [monzo blog]: /2019/01/13/monzo.html
+[orderedlist]: https://github.com/orderedlist
+[rc blog]: /2017/08/10/rc.html
