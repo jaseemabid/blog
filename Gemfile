@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.6" # Match homebrew version
+ruby File.read('.ruby-version').strip
 
 gem "github-pages", group: :jekyll_plugins
 
